@@ -44,4 +44,11 @@ export class KlaskService {
       // { tourneyId: "some guid", tourneyName: 	"mita", gameNumber:	3, pointDateTime: "some datetime", scorer: "Tom	forfeit	Valeria      
     ];
   }
+
+  // ? ? ?
+  getTournaments() {
+    return [
+      {}
+    ];
+  }
 }
