@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { KlaskService } from '../klask.service';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,12 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(private klaskSvc: KlaskService) {}
+
+  serviceExample() {
+    console.log(this.klaskSvc);
+    const foo = this.klaskSvc.getTournamentGameResults("some guid");
+    console.log(foo);
+  }
 
 }
