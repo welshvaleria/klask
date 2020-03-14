@@ -12,7 +12,7 @@ export class HomePage {
 
   serviceExample() {
     console.log(this.klaskSvc);
-    const foo = this.klaskSvc.getTournamentGameResults("some guid");
+    const foo = this.klaskSvc.getTournamentGameResults("1073ed04-45ef-444e-8263-8cc77b5251e4");
     console.log(foo);
   }
 
