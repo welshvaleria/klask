@@ -9,7 +9,8 @@ export class KlaskService {
 
   getTournamentGameResults(tourneyId: string) {
     return [
-        { tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
+        { 
+          tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
           , tourneyName: 	"mita"
           , gameNumber:	1
           , pointDateTime: "some datetime"
@@ -19,7 +20,8 @@ export class KlaskService {
           , pointType: "score"
           , opponent: "Valeria" 
         }
-      , { tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
+      , { 
+        tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
         , tourneyName: 	"mita"
         , gameNumber:	1
         , pointDateTime: "some datetime"
@@ -28,7 +30,8 @@ export class KlaskService {
         , pointType:	"klask"
         , opponent:	"Tom" }
   
-        , { tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
+        , { 
+          tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
         , tourneyName: 	"mita"
         , gameNumber:	1
         , pointDateTime: "some datetime"
@@ -37,7 +40,8 @@ export class KlaskService {
         , pointType:	"score"
         , opponent:	"Tom" }
   
-        , { tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
+        , { 
+          tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
         , tourneyName: 	"mita"
         , gameNumber:	1
         , pointDateTime: "some datetime"
@@ -47,7 +51,8 @@ export class KlaskService {
         , pointType: "biscuit"
         , opponent: "Valeria" 
       }
-      , { tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
+      , { 
+        tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
         , tourneyName: 	"mita"
         , gameNumber:	1
         , pointDateTime: "some datetime"
@@ -57,7 +62,8 @@ export class KlaskService {
         , pointType: "score"
         , opponent:	"Valeria" 
       }
-      , { tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
+      , { 
+        tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
         , tourneyName: 	"mita"
         , gameNumber:	1
         , pointDateTime: "some datetime"
@@ -67,7 +73,8 @@ export class KlaskService {
         , pointType: "score"
         , opponent:	"Valeria" 
       }
-      , { tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
+      , { 
+        tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
         , tourneyName: 	"mita"
         , gameNumber:	1
         , pointDateTime: "some datetime"
@@ -77,7 +84,8 @@ export class KlaskService {
         , opponent:	"Tom" 
       }
 
-      , { tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
+      , { 
+        tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
         , tourneyName: 	"mita"
         , gameNumber:	1
         , pointDateTime: "some datetime"
@@ -86,7 +94,8 @@ export class KlaskService {
         , pointType:	"score"
         , opponent:	"Tom" 
       }
-      , { tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
+      , { 
+        tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
         , tourneyName: 	"mita"
         , gameNumber:	1
         , pointDateTime: "some datetime"
@@ -95,7 +104,8 @@ export class KlaskService {
         , pointType:	"loss-control"
         , opponent:	"Tom" 
       }
-      , { tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
+      , { 
+        tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
         , tourneyName: 	"mita"
         , gameNumber:	1
         , pointDateTime: "some datetime"
@@ -104,7 +114,8 @@ export class KlaskService {
         , pointType:	"score"
         , opponent:	"Tom" 
       }
-      , { tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
+      , { 
+        tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
         , tourneyName: 	"mita"
         , gameNumber:	2
         , pointDateTime: "some datetime"
@@ -113,7 +124,8 @@ export class KlaskService {
         , pointType:	"forfeit"
         , opponent:	"Valeria" 
       }
-      , { tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
+      , { 
+        tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
         , tourneyName: 	"mita"
         , gameNumber:	2
         , pointDateTime: "some datetime"
@@ -122,7 +134,8 @@ export class KlaskService {
         , pointType:	"forfeit"
         , opponent:	"Valeria" 
       }
-      , { tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
+      , { 
+        tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
         , tourneyName: 	"mita"
         , gameNumber:	2
         , pointDateTime: "some datetime"
@@ -131,7 +144,8 @@ export class KlaskService {
         , pointType:	"forfeit"
         , opponent:	"Valeria" 
       }
-      , { tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
+      , { 
+        tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
         , tourneyName: 	"mita"
         , gameNumber:	2
         , pointDateTime: "some datetime"
@@ -140,7 +154,8 @@ export class KlaskService {
         , pointType:	"forfeit"
         , opponent:	"Valeria" 
       }
-      , { tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
+      , { 
+        tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
         , tourneyName: 	"mita"
         , gameNumber:	2
         , pointDateTime: "some datetime"
@@ -149,7 +164,8 @@ export class KlaskService {
         , pointType:	"forfeit"
         , opponent:	"Valeria" 
       }
-      , { tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
+      , { 
+        tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
         , tourneyName: 	"mita"
         , gameNumber:	2
         , pointDateTime: "some datetime"
@@ -158,7 +174,8 @@ export class KlaskService {
         , pointType:	"forfeit"
         , opponent:	"Valeria" 
       }
-      , { tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
+      , { 
+        tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
         , tourneyName: 	"mita"
         , gameNumber:	3
         , pointDateTime: "some datetime"
@@ -168,7 +185,8 @@ export class KlaskService {
         , pointType:	"forfeit"
         , opponent:	"Valeria" 
       }
-      , { tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
+      , { 
+        tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
         , tourneyName: 	"mita"
         , gameNumber:	3
         , pointDateTime: "some datetime"
@@ -178,7 +196,8 @@ export class KlaskService {
         , pointType:	"forfeit"
         , opponent:	"Valeria" 
       }
-      , { tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
+      , { 
+        tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
         , tourneyName: 	"mita"
         , gameNumber:	3
         , pointDateTime: "some datetime"
@@ -188,7 +207,8 @@ export class KlaskService {
         , pointType:	"forfeit"
         , opponent:	"Valeria" 
       }
-      , { tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
+      , { 
+        tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
         , tourneyName: 	"mita"
         , gameNumber:	3
         , pointDateTime: "some datetime"
@@ -198,7 +218,8 @@ export class KlaskService {
         , pointType:	"forfeit"
         , opponent:	"Valeria" 
       }
-      , { tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
+      , { 
+        tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
         , tourneyName: 	"mita"
         , gameNumber:	3
         , pointDateTime: "some datetime"
@@ -208,7 +229,8 @@ export class KlaskService {
         , pointType:	"forfeit"
         , opponent:	"Valeria" 
       }
-      , { tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
+      , { 
+        tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
         , tourneyName: 	"mita"
         , gameNumber:	3
         , pointDateTime: "some datetime"
