@@ -220,7 +220,20 @@ export class KlaskService {
   // ? ? ?
   getTournaments() {
     return [
-      {}
+      { 
+        tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
+        , tourneyName: "mita"
+        , status: "open"
+        , openedDateTime: "2020/12/25 16:00"
+        , closedDateTime: ""
+      }
+      , { 
+        tourneyId: "sample-past-tourney"
+        , tourneyName: "testing"
+        , status: "closed"
+        , openedDateTime: "2020/1/25 16:00"
+        , closedDateTime: "2020/1/25 16:50"
+      }
     ];
   }
 }
