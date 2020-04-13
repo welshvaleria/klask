@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { KlaskService } from '../klask.service';
-import { access } from 'fs';
 
 @Component({
   selector: 'app-win-loss-stats',
@@ -12,10 +11,11 @@ export class WinLossStatsPage implements OnInit {
   constructor(private klaskSvc: KlaskService) { }
 
   results: any[];
+  simplifiedWinsLosses: any[];
+  possibleForSorting: any[];
 
   ngOnInit() {
     this.results = this.klaskSvc.getTournamentGameResults("1073ed04-45ef-444e-8263-8cc77b5251e4");
-    console.log(this.results);
 
     // Reducing data to get wins/losses per player
     const winsLosses = this.results.reduce(
@@ -42,8 +42,19 @@ export class WinLossStatsPage implements OnInit {
       , new Map()
     );
 
-    // Playing around with how to get data out of the Map that is returned.
-    console.log(winsLosses);
-    winsLosses.forEach(element => console.log(`Wins: ${element.wins} Losses: ${element.losses} Win%: ${element.wins / (element.wins + element.losses)}`));
+    //Spread the Map into a new array that will be cleaned down to name, wins, losses, and winPercentage
+    this.simplifiedWinsLosses = [...winsLosses].map(x => ({
+      name: x[0]
+      , wins: x[1].wins
+      , losses: x[1].losses
+      , winPercentage: (x[1].wins / (x[1].wins + x[1].losses)).toFixed(3)
+    }));
+
+    this.possibleForSorting = this.simplifiedWinsLosses.map(x => ({
+      ...x
+      , sort: x.winPercentage * 1000 + x.wins + x.losses
+    }));
+
+    this.possibleForSorting.sort((a, b) => b.sort - a.sort);
   }
 }

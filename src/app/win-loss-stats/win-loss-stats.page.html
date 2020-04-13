@@ -6,20 +6,10 @@
 
 <ion-content>
   <ion-list>
-    <ion-item>
-      <ion-label>
-        Foo
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label>
-        Bar
-      </ion-label>
-    </ion-item>
     <ion-item
-      *ngFor="let result of results"
+      *ngFor="let wl of possibleForSorting"
     >
-      {{ result.winner }}
+      {{ wl.name }} {{ wl.wins }} {{ wl.losses }} {{ wl.winPercentage }}
     </ion-item>
   </ion-list>
 </ion-content>
