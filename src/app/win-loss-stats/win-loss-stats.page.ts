@@ -72,6 +72,7 @@ export class WinLossStatsPage implements OnInit {
       name: x[0]
       , wins: x[1].wins
       , losses: x[1].losses
+      , winPercent: x[1].wins / (x[1].wins + x[1].losses)
     }));
 
     console.log(finalArrayOfObjects);
