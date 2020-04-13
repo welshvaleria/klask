@@ -75,7 +75,22 @@ export class WinLossStatsPage implements OnInit {
       , winPercent: x[1].wins / (x[1].wins + x[1].losses)
     }));
 
-    console.log(finalArrayOfObjects);
+    const withDummySamePercentButDifferentNumberOfGames = [
+      ...finalArrayOfObjects
+      , {
+        name: 'Dummy'
+        , wins: 3
+        , losses: 0
+        , winPercent: 1.0
+      }
+    ];
+
+    const possibleForSorting = withDummySamePercentButDifferentNumberOfGames.map(x => ({
+      ...x
+      , sort: x.winPercent * 1000 + x.wins + x.losses
+    }))
+
+    console.log(possibleForSorting.sort((a, b) => b.sort - a.sort));
 
   }
 }
