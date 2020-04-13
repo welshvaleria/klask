@@ -16,18 +16,34 @@ export class WinLossStatsPage implements OnInit {
     const foo = this.klaskSvc.getTournamentGameResults("1073ed04-45ef-444e-8263-8cc77b5251e4");
 
     // Practice filtering... reducing... ??? Here...
+    // const bar = foo.reduce(
+    //   (acc, x) => {
+        
+    //     acc.set(x.winner, { 
+    //       wins: acc.get(x.winner) ? acc.get(x.winner).wins + 1 : 1
+    //       , losses: acc.get(x.winner) ? acc.get(x.winner).losses : 0
+    //     });
+        
+    //     acc.set(x.loser, { 
+    //       wins: acc.get(x.loser) ? acc.get(x.loser).wins : 0
+    //       , losses: acc.get(x.loser) ? acc.get(x.loser).losses + 1 : 1
+    //     });
+
+    //     return acc;
+    //   }
+    //   , new Map()
+    // );
+
     const bar = foo.reduce(
       (acc, x) => {
         
-        acc.set(x.winner, { 
-          wins: acc.get(x.winner) ? acc.get(x.winner).wins + 1 : 1
-          , losses: acc.get(x.winner) ? acc.get(x.winner).losses : 0
-        });
+        acc.get(x.winner) ? 
+          acc.set(x.winner, {...acc.get(x.winner), wins: acc.get(x.winner).wins + 1})
+          : acc.set(x.winner, {wins: 1, losses: 0 })
         
-        acc.set(x.loser, { 
-          wins: acc.get(x.loser) ? acc.get(x.loser).wins : 0
-          , losses: acc.get(x.loser) ? acc.get(x.loser).losses + 1 : 1
-        });
+        acc.get(x.loser) ? 
+          acc.set(x.loser, {...acc.get(x.loser), losses: acc.get(x.loser).losses + 1})
+          : acc.set(x.loser, {wins: 0, losses: 1 })
 
         return acc;
       }
