@@ -68,7 +68,13 @@ export class WinLossStatsPage implements OnInit {
     //   , new Map()
     // );
 
-    console.log(bar);
+    const finalArrayOfObjects = [...bar].map(x => ({ 
+      name: x[0]
+      , wins: x[1].wins
+      , losses: x[1].losses
+    }));
+
+    console.log(finalArrayOfObjects);
 
   }
 }
