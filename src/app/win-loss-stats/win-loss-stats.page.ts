@@ -83,6 +83,12 @@ export class WinLossStatsPage implements OnInit {
         , losses: 0
         , winPercent: 1.0
       }
+      , {
+        name: 'Alpha'
+        , wins: 3
+        , losses: 0
+        , winPercent: 1.0
+      }      
     ];
 
     const possibleForSorting = withDummySamePercentButDifferentNumberOfGames.map(x => ({
@@ -90,7 +96,7 @@ export class WinLossStatsPage implements OnInit {
       , sort: x.winPercent * 1000 + x.wins + x.losses
     }))
 
-    console.log(possibleForSorting.sort((a, b) => b.sort - a.sort));
+    console.log(possibleForSorting.sort((a, b) => b.sort - a.sort == 0 ? b.name < a.name ? 1 : -1 : b.sort - a.sort));
 
   }
 }
