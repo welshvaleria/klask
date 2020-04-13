@@ -228,7 +228,7 @@ export class KlaskService {
         , closedDateTime: ""
       }
       , { 
-        tourneyId: "sample-past-tourney"
+        tourneyId: "sample-past-tourney-guid"
         , tourneyName: "testing"
         , status: "closed"
         , openedDateTime: "2020/1/25 16:00"

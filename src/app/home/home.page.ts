@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { KlaskService } from '../klask.service';
 
 @Component({
@@ -6,14 +6,12 @@ import { KlaskService } from '../klask.service';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit {
 
   constructor(private klaskSvc: KlaskService) {}
 
-  serviceExample() {
-    console.log(this.klaskSvc);
-    const foo = this.klaskSvc.getTournamentGameResults("1073ed04-45ef-444e-8263-8cc77b5251e4");
+  ngOnInit() {
+    const foo = this.klaskSvc.getTournaments();
     console.log(foo);
-  }
-
+  }  
 }
