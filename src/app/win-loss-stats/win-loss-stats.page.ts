@@ -37,13 +37,31 @@ export class WinLossStatsPage implements OnInit {
     const bar = foo.reduce(
       (acc, x) => {
         
+        // If this winner already in accumulator
         acc.get(x.winner) ? 
-          acc.set(x.winner, {...acc.get(x.winner), wins: acc.get(x.winner).wins + 1})
-          : acc.set(x.winner, {wins: 1, losses: 0 })
+          acc.set(x.winner, {
+            
+            // Spread its current wins/losses in
+            ...acc.get(x.winner)
+
+            // Then update the wins by 1
+            , wins: acc.get(x.winner).wins + 1
+          })
+          // Otherwise, 
+          : acc.set(x.winner, {
+            wins: 1
+            , losses: 0 
+          })
         
         acc.get(x.loser) ? 
-          acc.set(x.loser, {...acc.get(x.loser), losses: acc.get(x.loser).losses + 1})
-          : acc.set(x.loser, {wins: 0, losses: 1 })
+          acc.set(x.loser, {
+            ...acc.get(x.loser)
+            , losses: acc.get(x.loser).losses + 1
+          })
+          : acc.set(x.loser, {
+            wins: 0
+            , losses: 1 
+          })
 
         return acc;
       }
