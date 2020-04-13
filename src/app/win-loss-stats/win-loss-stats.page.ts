@@ -10,8 +10,12 @@ export class WinLossStatsPage implements OnInit {
 
   constructor(private klaskSvc: KlaskService) { }
 
+  results: any[];
+
   ngOnInit() {
-    const foo = this.klaskSvc.getTournamentGameResults("1073ed04-45ef-444e-8263-8cc77b5251e4");
-    console.log(foo);
+    this.results = this.klaskSvc.getTournamentGameResults("1073ed04-45ef-444e-8263-8cc77b5251e4");
+    console.log(this.results);
+
+    // Practice filtering... reducing... ??? Here...
   }
 }
