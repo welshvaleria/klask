@@ -1,29 +1,55 @@
 <ion-header [translucent]="true">
     <ion-toolbar>
         <ion-title>
-            Klask
+            Klask Tourneys
         </ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content>
     <ion-list>
-        <ion-item
-            *ngFor= "let t of tournaments"            
-        >
+        <ion-item-divider>
+            <ion-label>Open</ion-label>
+        </ion-item-divider>
+        <ion-item *ngFor="let t of tournaments">
             <ion-label>
                 {{t.tourneyName}}
             </ion-label>
             <small>
-                    <!-- {{t.openedDateTime | date:'shortDate'}} -->
-                <ion-button *ngIf="t.status == 'open'">Join</ion-button>
-                <ion-button 
-                    *ngIf="t.status == 'closed'"
-                    [routerLink]="['/win-loss-stats']"
-                >
-                    View
-                </ion-button>
+                <ion-button>Join</ion-button>
             </small>
         </ion-item>
+        <ion-item-divider>
+            <ion-label>Active</ion-label>
+        </ion-item-divider>
+        <ion-item>
+            <ion-label>
+                Foo
+            </ion-label>
+            <small>
+                <ion-button>Open</ion-button>
+            </small>
+        </ion-item>
+        <ion-item>
+            <ion-label>
+                Bar
+            </ion-label>
+            <small>
+                <ion-button>Open</ion-button>
+            </small>
+        </ion-item>
+        <ion-item-divider>
+            <ion-label>Past</ion-label>
+        </ion-item-divider>
+
+        <ion-item>
+            <ion-label>
+                Cat
+            </ion-label>
+            <small>
+                <ion-button>View</ion-button>
+            </small>
+        </ion-item>
+
     </ion-list>
 </ion-content>
