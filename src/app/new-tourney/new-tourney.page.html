@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>New Tourney</ion-title>
+    <ion-buttons slot="start">
+      <ion-button
+        [routerLink]="['/']"
+      >
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-input
+    placeholder="Enter tourney name"
+  >
+  </ion-input>
+  <ion-input
+    placeholder="Enter admin code"
+  >
+  </ion-input>
+  <ion-button
+    (click)="validateCodeAndCreateNewTourney()"
+  >
+    Create
+  </ion-button>
+</ion-content>

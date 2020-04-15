@@ -8,6 +8,10 @@ const routes: Routes = [
     path: 'win-loss-stats',
     loadChildren: () => import('./win-loss-stats/win-loss-stats.module').then( m => m.WinLossStatsPageModule)
   },
+  {
+    path: 'new-tourney',
+    loadChildren: () => import('./new-tourney/new-tourney.module').then( m => m.NewTourneyPageModule)
+  },
 ];
 
 @NgModule({
