@@ -224,15 +224,22 @@ export class KlaskService {
         tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
         , tourneyName: "mita"
         , status: "open"
-        , openedDateTime: "2020/12/25 16:00"
+        , openedDateTime: "2020-12-25T16:00Z"
         , closedDateTime: ""
       }
       , { 
         tourneyId: "sample-past-tourney-guid"
         , tourneyName: "testing"
         , status: "closed"
-        , openedDateTime: "2020/1/25 16:00"
-        , closedDateTime: "2020/1/25 16:50"
+        , openedDateTime: "2020-01-25T16:00Z"
+        , closedDateTime: "2020-01-25T16:50Z"
+      }
+      , { 
+        tourneyId: "sample-past-tourney-guid"
+        , tourneyName: "mita 2"
+        , status: "open"
+        , openedDateTime: "2020-04-25T16:00Z"
+        , closedDateTime: ""
       }
     ];
   }
