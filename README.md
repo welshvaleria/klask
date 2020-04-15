@@ -3,6 +3,12 @@
 Tracking burn-up charts and commentary in reverse chronological order...
 ```
 
+## 2020-04-15
+* Finished leaderboard
+* Beginning work on booby prize for most klasks
+
+<img src="misc/2020-04-15-klask-burn-up.png" width="300" />
+
 ## 2020-04-13
 * Scramble to get this project back up and running
 * Removed some un-essential items
