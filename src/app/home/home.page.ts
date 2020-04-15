@@ -10,8 +10,9 @@ export class HomePage implements OnInit {
 
   constructor(private klaskSvc: KlaskService) {}
 
+  tournaments = [];
+
   ngOnInit() {
-    const foo = this.klaskSvc.getTournaments();
-    console.log(foo);
-  }  
+    this.tournaments = this.klaskSvc.getTournaments();
+  }
 }
