@@ -17,7 +17,12 @@
             <small>
                     <!-- {{t.openedDateTime | date:'shortDate'}} -->
                 <ion-button *ngIf="t.status == 'open'">Join</ion-button>
-                <ion-button *ngIf="t.status == 'closed'">View</ion-button>
+                <ion-button 
+                    *ngIf="t.status == 'closed'"
+                    [routerLink]="['/win-loss-stats']"
+                >
+                    View
+                </ion-button>
             </small>
         </ion-item>
     </ion-list>
