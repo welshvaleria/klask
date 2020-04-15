@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>WinLossStats</ion-title>
+    <ion-title>Leaderboard</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -9,7 +9,8 @@
     <ion-item
       *ngFor="let wl of possibleForSorting"
     >
-      {{ wl.name }} {{ wl.wins }} {{ wl.losses }} {{ wl.winPercentage }}
+      <ion-label>{{ wl.name }}</ion-label>
+      <small>{{ wl.wins }} W {{ wl.losses }} L ({{ wl.winPercentage }}) </small>
     </ion-item>
   </ion-list>
 </ion-content>
