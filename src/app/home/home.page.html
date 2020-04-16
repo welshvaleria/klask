@@ -9,47 +9,47 @@
 <ion-content>
     <ion-list>
         <ion-item-divider>
-            <ion-label>Open</ion-label>
+            <ion-label>Purchase</ion-label>
         </ion-item-divider>
-        <ion-item *ngFor="let t of tournaments">
-            <ion-label>
-                {{t.tourneyName}}
-            </ion-label>
+        <ion-item>
+            <ion-text
+                color="dark"
+            >
+                Coming soon...
+            </ion-text>
+        </ion-item>
+        <ion-item-divider>
+            <ion-label>Join</ion-label>
+        </ion-item-divider>
+        <ion-item>
+            <ion-input placeholder="Enter your tourney code">
+            </ion-input>
             <small>
                 <ion-button>Join</ion-button>
             </small>
         </ion-item>
         <ion-item-divider>
-            <ion-label>Active</ion-label>
+            <ion-label>Mine</ion-label>
         </ion-item-divider>
         <ion-item>
             <ion-label>
-                Foo
+                Sample 1 (Completed, see the stats!)
+            </ion-label>
+            <small>
+                <ion-button 
+                    [routerLink]="['/win-loss-stats']"
+                >
+                    Open
+                </ion-button>
+            </small>
+        </ion-item>
+        <ion-item>
+            <ion-label>
+                Free Trial (Try running your tourney!)
             </ion-label>
             <small>
                 <ion-button>Open</ion-button>
             </small>
         </ion-item>
-        <ion-item>
-            <ion-label>
-                Bar
-            </ion-label>
-            <small>
-                <ion-button>Open</ion-button>
-            </small>
-        </ion-item>
-        <ion-item-divider>
-            <ion-label>Past</ion-label>
-        </ion-item-divider>
-
-        <ion-item>
-            <ion-label>
-                Cat
-            </ion-label>
-            <small>
-                <ion-button>View</ion-button>
-            </small>
-        </ion-item>
-
     </ion-list>
 </ion-content>
