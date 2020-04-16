@@ -17,6 +17,29 @@ export class WinLossStatsPage implements OnInit {
   ngOnInit() {
     this.results = this.klaskSvc.getTournamentGameResults("1073ed04-45ef-444e-8263-8cc77b5251e4");
 
+    const foo = this.results
+      .reduce(
+        (acc, x) => [...acc, ...x.points]
+        , []
+      )
+      .filter(x => x.pointType == 'klask')
+      .reduce(
+        (acc, x) => {
+
+          acc.set(x.opponent, {
+            klasks: acc.get(x.opponent) ? acc.get(x.opponent).klasks + 1 : 1
+          }); 
+          return acc;
+        }
+        , new Map()
+      )
+      ;
+
+    console.log([...foo].map(x => ({
+      name: x[0]
+      , klasks: x[1].klasks
+    })));
+
     // Reducing data to get wins/losses per player
     const winsLosses = this.results.reduce(
       (acc, x) => {
