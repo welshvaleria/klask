@@ -1,16 +1,23 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Leaderboard</ion-title>
+      <ion-button 
+        slot="end" 
+        [routerLink]="['/most-klask-stats']">
+        Most Klasks
+      </ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
-    <ion-item
-      *ngFor="let wl of possibleForSorting"
-    >
-      <ion-label>{{ wl.name }}</ion-label>
-      <small>{{ wl.wins }} W {{ wl.losses }} L ({{ wl.winPercentage }}) </small>
+    <ion-item *ngFor="let wl of possibleForSorting">
+      <ion-label>
+        {{ wl.name }}
+      </ion-label>
+      <small>
+        {{ wl.wins }} W {{ wl.losses }} L ({{ wl.winPercentage }}) 
+      </small>
     </ion-item>
   </ion-list>
 </ion-content>
