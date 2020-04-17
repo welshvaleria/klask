@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: 'win-loss-stats',
     loadChildren: () => import('./win-loss-stats/win-loss-stats.module').then( m => m.WinLossStatsPageModule)
+  },  {
+    path: 'join-tourney',
+    loadChildren: () => import('./join-tourney/join-tourney.module').then( m => m.JoinTourneyPageModule)
   },
+
 ];
 
 @NgModule({
