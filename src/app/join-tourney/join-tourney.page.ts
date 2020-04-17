@@ -16,4 +16,8 @@ export class JoinTourneyPage implements OnInit {
     this.tournaments = this.klaskSvc.getTournaments();
   }
 
+  test() {
+      alert("workin..");
+  }
+
 }
