@@ -15,26 +15,20 @@ export class MostKlaskStatsPage implements OnInit {
 
   ngOnInit() {
     this.results = this.klaskSvc.getTournamentGameResults("1073ed04-45ef-444e-8263-8cc77b5251e4");
-    // console.log(this.results);
 
-    const allPointsScored = this.results.reduce((acc, x) => {
-      return acc.concat(x.points);
-    }, []);
-
-    const klaskPoints = allPointsScored.filter(point => point.pointType === "klask");
-
-    const playersWhoKlasked = klaskPoints.map(klasker => klasker.opponent);
-
-    const timesKlasked = playersWhoKlasked.reduce((acc, x) => {
-
-      acc.set(x, {
-        klasks: acc.get(x) ? acc.get(x).klasks + 1 : 1
-      });
-      return acc;
-
+    const timesKlasked = this.results
+      // Pulling points array out of the original object
+      .reduce((acc, x) => [...acc, ...x.points], [])
+      // Get just klask points
+      .filter(point => point.pointType === "klask")
+      // Get the person who klasked
+      .map(klasker => klasker.opponent)
+      .reduce((acc, x) => {
+        acc.set(x, {
+          klasks: acc.get(x) ? acc.get(x).klasks + 1 : 1
+        });
+        return acc;
     }, new Map());
-
-    // console.log(timesKlasked);
 
     this.klaskArray = [...timesKlasked].map(x => ({
       name: x[0]
