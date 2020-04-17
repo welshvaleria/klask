@@ -1,16 +1,32 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Sample 1 Leaderboard</ion-title>
+    <ion-title>Free Trial Leaderboard</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
-    <ion-item
-      *ngFor="let wl of possibleForSorting"
-    >
-      <ion-label>{{ wl.name }}</ion-label>
-      <small>{{ wl.wins }} W {{ wl.losses }} L ({{ wl.winPercentage }}) </small>
+    <ion-item *ngFor="let wl of possibleForSorting">
+      <ion-label>
+        {{ wl.name }}
+      </ion-label>
+      <small>
+        {{ wl.wins }} W {{ wl.losses }} L ({{ wl.winPercentage }}) 
+      </small>
     </ion-item>
   </ion-list>
 </ion-content>
+
+<ion-footer>
+  <small>
+    <ion-button 
+      slot="end" 
+      [routerLink]="['/most-klask-stats']">
+      View Most Klasks
+    </ion-button>
+    
+    <ion-button>
+      Play Game
+    </ion-button>
+  </small>
+</ion-footer>

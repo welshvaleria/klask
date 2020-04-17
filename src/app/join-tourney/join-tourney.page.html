@@ -1,0 +1,40 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>
+            Join {{ tourneyName }}
+        </ion-title>
+        <ion-buttons
+            slot="start"
+        >
+            <ion-button
+                [routerLink]="['/']"
+            >
+                <ion-icon name="arrow-back"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card>
+        <!-- <ion-card-header>
+            <ion-card-subtitle>Tourney</ion-card-subtitle>
+            <ion-card-title>{{ tourneyName }}</ion-card-title>
+        </ion-card-header> -->
+
+        <ion-card-content>
+            <ion-input
+                type ="text"
+                [(ngModel)]="username"
+                placeholder="Enter nickname"
+            >
+            </ion-input>
+
+            <ion-button
+                (click)="test()"
+            >
+                Join
+            </ion-button>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

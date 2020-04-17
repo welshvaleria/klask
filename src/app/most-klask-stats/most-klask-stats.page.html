@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-back-button 
+      color="primary" 
+      slot="start" 
+      [routerLink]="['/win-loss-stats']"></ion-back-button>
+    <ion-title>
+      Most Klasks
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item
+      *ngFor="let k of klaskArray">
+      <ion-label>
+        {{ k.name }}
+      </ion-label>
+      <small>
+        {{ k.klaskOffenses }}
+      </small>
+    </ion-item>
+  </ion-list>
+</ion-content>

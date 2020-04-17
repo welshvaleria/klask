@@ -25,7 +25,11 @@
             <ion-input placeholder="Enter your tourney/group code">
             </ion-input>
             <small>
-                <ion-button>Join</ion-button>
+                <ion-button 
+                    [routerLink]="['/join-tourney', 'New Tourney']"
+                >
+                    Join
+                </ion-button>
             </small>
         </ion-item>
         <ion-item-divider>
@@ -41,9 +45,7 @@
             &nbsp;
             &nbsp;
             <small>
-                <ion-button 
-                    [routerLink]="['/win-loss-stats']"
-                >
+                <ion-button>
                     Open
                 </ion-button>
             </small>
@@ -57,7 +59,11 @@
             &nbsp;
             &nbsp;
             <small>
-                <ion-button>Open</ion-button>
+                <ion-button
+                    [routerLink]="['/win-loss-stats']"
+                >
+                    Open
+                </ion-button>
             </small>
         </ion-item>
     </ion-list>
