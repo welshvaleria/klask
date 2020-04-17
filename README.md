@@ -2,7 +2,7 @@
 ```
 Tracking burn-up charts and commentary in reverse chronological order...
 ```
-## 2020-04-15 (update 2)
+## 2020-04-17
 * Most klask points page completed w/ navigation
 * Join tourney page completed, might be changed later
 * Setup game and actual in game page work beginning
