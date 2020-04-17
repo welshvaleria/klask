@@ -6,6 +6,7 @@ Tracking burn-up charts and commentary in reverse chronological order...
 * Most klask points page completed w/ navigation
 * Join tourney page completed, might be changed later
 * Setup game and actual in game page work beginning
+* Took out some stats pages as well, sticking with leaderboard and most Klasks for now
 
 <img src="misc/2020-04-17-klask-burn-up.PNG" width="300" />
 
