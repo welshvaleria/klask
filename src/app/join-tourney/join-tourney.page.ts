@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { KlaskService } from '../klask.service';
 
 @Component({
   selector: 'app-join-tourney',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JoinTourneyPage implements OnInit {
 
-  constructor() { }
+  constructor(private klaskSvc: KlaskService) { }
+
+  tournaments = [];
 
   ngOnInit() {
+    this.tournaments = this.klaskSvc.getTournaments();
   }
 
 }
