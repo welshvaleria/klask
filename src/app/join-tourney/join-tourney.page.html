@@ -1,32 +1,32 @@
 <ion-header>
     <ion-toolbar>
         <ion-title>
-            <!-- <ion-buttons> -->
-                <ion-button
-                    color="outline"
-                    [routerLink]="['/']"
-                >
-                    <ion-icon name="arrow-back"></ion-icon>
-                </ion-button>
-            <!-- </ion-buttons> -->
-            Join
+            Join {{ tourneyName }}
         </ion-title>
+        <ion-buttons
+            slot="start"
+        >
+            <ion-button
+                [routerLink]="['/']"
+            >
+                <ion-icon name="arrow-back"></ion-icon>
+            </ion-button>
+        </ion-buttons>
     </ion-toolbar>
 </ion-header>
 
 <ion-content>
     <ion-card>
-        <ion-card-header>
+        <!-- <ion-card-header>
             <ion-card-subtitle>Tourney</ion-card-subtitle>
             <ion-card-title>{{ tourneyName }}</ion-card-title>
-        </ion-card-header>
+        </ion-card-header> -->
 
         <ion-card-content>
-            <ion-label>Username:</ion-label>
             <ion-input
                 type ="text"
                 [(ngModel)]="username"
-                color="dark"
+                placeholder="Enter nickname"
             >
             </ion-input>
 
