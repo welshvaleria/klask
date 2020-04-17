@@ -7,12 +7,18 @@ const routes: Routes = [
   {
     path: 'win-loss-stats',
     loadChildren: () => import('./win-loss-stats/win-loss-stats.module').then( m => m.WinLossStatsPageModule)
-  },  {
+  },
+  {
     path: 'most-klask-stats',
     loadChildren: () => import('./most-klask-stats/most-klask-stats.module').then( m => m.MostKlaskStatsPageModule)
   },
+  {
+    path: 'join-tourney/:tourneyName',
+    loadChildren: () => import('./join-tourney/join-tourney.module').then( m => m.JoinTourneyPageModule)
+  },
 
 ];
+
 
 @NgModule({
   imports: [

@@ -16,7 +16,12 @@
             </ion-label>
             <small>
                     <!-- {{t.openedDateTime | date:'shortDate'}} -->
-                <ion-button *ngIf="t.status == 'open'">Join</ion-button>
+                <ion-button 
+                    *ngIf="t.status == 'open'"
+                    [routerLink]="['/join-tourney', t.tourneyName]"
+                >
+                    Join
+                </ion-button>
                 <ion-button 
                     *ngIf="t.status == 'closed'"
                     [routerLink]="['/win-loss-stats']"
