@@ -1,26 +1,24 @@
 <ion-header>
     <ion-toolbar>
         <ion-title>
-            join-tourney
+            <!-- <ion-buttons> -->
+                <ion-button
+                    color="outline"
+                    [routerLink]="['/']"
+                >
+                    <ion-icon name="arrow-back"></ion-icon>
+                </ion-button>
+            <!-- </ion-buttons> -->
+            Join
         </ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content>
     <ion-card>
-        <ion-item>
-            <ion-buttons>
-                <ion-button
-                    [routerLink]="['/']"
-                >
-                    <ion-icon name="arrow-back"></ion-icon>
-                </ion-button>
-            </ion-buttons>
-        </ion-item>
-
         <ion-card-header>
             <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-            <ion-card-title>Card Title</ion-card-title>
+            <ion-card-title>{{ name }}</ion-card-title>
         </ion-card-header>
 
         <ion-card-content>
