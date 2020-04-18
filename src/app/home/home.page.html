@@ -50,7 +50,10 @@
             &nbsp;
             &nbsp;
             <small>
-                <ion-button fill="outline">
+                <ion-button 
+                    [routerLink]="['/win-loss-stats', '1073ed04-45ef-444e-8263-8cc77b5251e4']"
+                    fill="outline"
+                >
                     Open
                 </ion-button>
             </small>
@@ -65,7 +68,7 @@
             &nbsp;
             <small>
                 <ion-button
-                    [routerLink]="['/win-loss-stats']"
+                    [routerLink]="['/win-loss-stats', '-1']"
                     fill="outline"
                 >
                     Open
