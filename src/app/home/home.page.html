@@ -9,7 +9,7 @@
 <ion-content>
     <ion-list>
         <ion-item-divider>
-            <ion-label>Purchase</ion-label>
+            <ion-label>Purchase Tourney</ion-label>
         </ion-item-divider>
         <ion-item>
             <ion-text
@@ -22,18 +22,23 @@
             <ion-label>Join</ion-label>
         </ion-item-divider>
         <ion-item>
-            <ion-input placeholder="Enter your tourney/group code">
+            <ion-input 
+                placeholder="Enter registration code"
+                [(ngModel)]="registrationCode"
+            >
             </ion-input>
             <small>
                 <ion-button 
-                    [routerLink]="['/join-tourney', 'New Tourney']"
+                    [routerLink]="['/join-tourney', registrationCode]"
+                    fill="outline"
+                    color="success"
                 >
                     Join
                 </ion-button>
             </small>
         </ion-item>
         <ion-item-divider>
-            <ion-label>My Tourneys/Groups</ion-label>
+            <ion-label>My Tourneys</ion-label>
         </ion-item-divider>
         <ion-item>
             <ion-label>
@@ -45,7 +50,7 @@
             &nbsp;
             &nbsp;
             <small>
-                <ion-button>
+                <ion-button fill="outline">
                     Open
                 </ion-button>
             </small>
@@ -53,7 +58,7 @@
         <ion-item>
             <ion-label>
                 Free Trial
-                <p>Try running your own tourney/group!</p>
+                <p>Try running your own tourney!</p>
             </ion-label>
             <ion-icon name="trash" style="font-size: 1.25em;"></ion-icon>
             &nbsp;
@@ -61,6 +66,7 @@
             <small>
                 <ion-button
                     [routerLink]="['/win-loss-stats']"
+                    fill="outline"
                 >
                     Open
                 </ion-button>

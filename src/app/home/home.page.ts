@@ -15,4 +15,6 @@ export class HomePage implements OnInit {
   ngOnInit() {
     this.tournaments = this.klaskSvc.getTournaments();
   }
+
+  registrationCode = "";
 }
