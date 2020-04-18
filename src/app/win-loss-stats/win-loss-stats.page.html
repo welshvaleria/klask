@@ -18,15 +18,24 @@
 </ion-content>
 
 <ion-footer>
-  <small>
-    <ion-button 
-      slot="end" 
-      [routerLink]="['/most-klask-stats']">
-      View Most Klasks
-    </ion-button>
-    
-    <ion-button>
-      Play Game
-    </ion-button>
-  </small>
+  <ion-toolbar>
+    <ion-buttons slot=primary>
+      <ion-button 
+        slot="end" 
+        [routerLink]="['/most-klask-stats']"
+        color="secondary"
+        expand="outline"
+        fill="solid"
+      >
+        View Most Klasks
+      </ion-button>
+      <ion-button
+        color="success"
+        expand="block"
+        fill="solid"
+      >
+        Play Game
+      </ion-button>
+  </ion-buttons>
+  </ion-toolbar>
 </ion-footer>

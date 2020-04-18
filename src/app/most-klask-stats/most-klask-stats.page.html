@@ -3,7 +3,10 @@
     <ion-back-button 
       color="primary" 
       slot="start" 
-      [routerLink]="['/win-loss-stats']"></ion-back-button>
+      [routerLink]="['/win-loss-stats']"
+      routerDirection="back"
+    >
+    </ion-back-button>
     <ion-title>
       Most Klasks
     </ion-title>
@@ -23,3 +26,19 @@
     </ion-item>
   </ion-list>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons slot=primary>
+      <ion-button 
+        slot="end" 
+        [routerLink]="['/win-loss-stats']"
+        color="secondary"
+        expand="outline"
+        fill="solid"
+      >
+        Back
+      </ion-button>
+  </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

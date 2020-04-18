@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { KlaskService } from '../klask.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-most-klask-stats',
@@ -8,7 +9,7 @@ import { KlaskService } from '../klask.service';
 })
 export class MostKlaskStatsPage implements OnInit {
 
-  constructor(private klaskSvc: KlaskService) { }
+  constructor(private klaskSvc: KlaskService, private router: Router) { }
 
   results: any[];
   klaskArray: any[];
