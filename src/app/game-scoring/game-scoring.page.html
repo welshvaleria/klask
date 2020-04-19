@@ -1,0 +1,37 @@
+<script>
+  import { PickerController } from '@ionic/angular';
+  window.PickerController = PickerController;
+</script>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Game Scoring</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-fab horizontal="center" vertical="center" slot="fixed">
+    <ion-fab-button color="light">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button color="primary">
+        <ion-icon><p>1</p></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+    <ion-fab-list side="end">
+      <ion-fab-button color="dark">
+        <ion-icon>2</ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+    <ion-fab-list side="bottom">
+      <ion-fab-button color="secondary">
+        <ion-icon>3</ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+    <ion-fab-list side="start">
+      <ion-fab-button color="light">
+        <ion-icon>4</ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>
