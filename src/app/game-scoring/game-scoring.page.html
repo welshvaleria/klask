@@ -1,7 +1,3 @@
-<script>
-  import { PickerController } from '@ionic/angular';
-  window.PickerController = PickerController;
-</script>
 <ion-header>
   <ion-toolbar>
     <ion-title>Game Scoring</ion-title>
@@ -34,4 +30,6 @@
       </ion-fab-button>
     </ion-fab-list>
   </ion-fab>
+
+  <ion-button expand="block" (click)="presentActionSheet()">Log point scored</ion-button>
 </ion-content>
