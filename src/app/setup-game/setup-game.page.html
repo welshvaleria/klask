@@ -1,0 +1,50 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>
+            Game Setup
+        </ion-title>
+        <ion-buttons
+            slot="start"
+        >
+            <ion-button
+                [routerLink]="['/']"
+            >
+                <ion-icon name="arrow-back"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card>
+        <ion-card-content>
+            <ion-input
+                type ="text"
+                [(ngModel)]="gameCode"
+                placeholder="Enter game code"
+            >
+            </ion-input>
+
+            <ion-input
+                type ="text"
+                [(ngModel)]="playerOne"
+                placeholder="Enter player 1"
+            >
+            </ion-input>
+
+            <ion-input
+                type ="text"
+                [(ngModel)]="playerTwo"
+                placeholder="Enter player 2"
+            >
+            </ion-input>
+
+            <ion-button
+                (click)="startGame()"
+            >
+                Start
+            </ion-button>
+        </ion-card-content>
+    </ion-card>
+</ion-content>
+
