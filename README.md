@@ -8,7 +8,7 @@ Tracking burn-up charts and commentary in reverse chronological order...
 * Decided the action sheet for the game-scoring page, for now...
 * Thinking phone parallel vs perpendicular to the board
 
-<img src="misc/2020-04-20-klask-burn-up.PNG" width="300" />
+<img src="misc/2020-04-20-klask-burn-up.png" width="300" />
 
 ## 2020-04-17
 * Most klask points page completed w/ navigation
