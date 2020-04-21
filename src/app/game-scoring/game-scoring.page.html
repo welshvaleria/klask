@@ -1,41 +1,64 @@
-<!-- <ion-header>
+<ion-header>
 	<ion-toolbar>
-    	<ion-title>Game Scoring</ion-title>
+    	<ion-title style="text-align: center;">Game 1</ion-title>
   	</ion-toolbar>
-</ion-header> -->
+</ion-header>
 
 <ion-content>
 
-	<ion-button id="leftButton" expand="block" (click)="presentActionSheet()">Log point scored</ion-button>
+	<ion-grid class="ion-no-padding main-grid">
+		<div class="height-box">
+			<ion-row class="name-row">
+				<ion-col class="left" size="5.9">
+					<ion-item class="ion-no-margin
+									 ion-no-padding">
+						<ion-label>Trevor</ion-label>
+					</ion-item>
+				</ion-col>
+				<ion-col size="0.2"></ion-col>
+				<ion-col class="right" size="5.9">
+					<ion-item class="ion-no-margin 
+									 ion-no-padding">
+						<ion-icon class="ion-text-left"name="caret-forward-outline"></ion-icon>
+						<ion-label class="ion-text-right">
+							Valeria
+						</ion-label>
+					</ion-item>
+				</ion-col>
+			</ion-row>
+			<ion-row class="score-row">
+				<ion-col class="left" size="5.9">
+					<ion-button class="ion-no-margin 
+									   ion-no-padding
+									   ion-color
+									   ion-color-primary"
+								expand="block" 
+								(click)="presentActionSheet()">
+						3
+					</ion-button>
+				</ion-col>
+				<ion-col size=".2"></ion-col>
+				<ion-col class="right" size="5.9">
+					<ion-button class="ion-no-margin
+									   ion-no-padding
+									   ion-color
+									   ion-color-tertiary" 
+								expand="block" 
+								(click)="presentActionSheet()">
+						5
+					</ion-button>
+				</ion-col>
+			</ion-row>
+		</div>
+	</ion-grid>
+
+	<!-- <ion-button id="leftButton" expand="block" (click)="presentActionSheet()">Log point scored</ion-button>
 	<div class="split left">
 		<p>3</p>
-		<!-- <ion-item>6</ion-item> -->
-	</div>
+		<ion-item>6</ion-item>
+	</div> -->
 
-	<ion-button id="upsideDownButton" expand="block" (click)="presentActionSheet()">Log point scored</ion-button>
+	<!-- <ion-button id="upsideDownButton" expand="block" (click)="presentActionSheet()">Log point scored</ion-button>
 	<div class="split right">
-	</div>
-
-	<!-- <ion-fab horizontal="center" vertical="center" slot="fixed">
-		<ion-fab-button color="light">
-			<ion-icon name="add"></ion-icon>
-		</ion-fab-button>
-		<ion-fab-list side="end">
-			<ion-fab-button color="dark">
-				<ion-icon>2</ion-icon>
-			</ion-fab-button>
-			<ion-fab-button color="dark">
-				<ion-icon>2</ion-icon>
-			</ion-fab-button>
-		</ion-fab-list>
-		<ion-fab-list side="start">
-			<ion-fab-button color="light">
-				<ion-icon>4</ion-icon>
-			</ion-fab-button>
-			<ion-fab-button color="light">
-				<ion-icon>4</ion-icon>
-			</ion-fab-button>
-		</ion-fab-list>
-	</ion-fab> -->
-
+	</div> -->
 </ion-content>

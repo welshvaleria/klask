@@ -1,35 +1,56 @@
-#upsideDownButton {
-    transform: rotate(180deg);
-    width: 100%;
-    z-index: 2;
+.main-grid {
+    margin-left: 24px;
+    margin-right: 24px;
+    --ion-grid-padding: 5px;
+    justify-self: center;
 }
 
-.split {
-    height: 100%;
-    width: 50%;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    overflow-x: hidden;
-    padding-top: 70px;
+.height-box {
+    height: calc((100vh - 269px));
 }
+
+.score-row ion-button {
+    height: calc((100vh - 125px - 10vw));
+    font-size: calc((100vh - 125px - 10vw) * .68);
+}
+
+ion-col {
+    width: calc(calc(6 / var(--ion-grid-columns, 12)) * 100%);
+    max-width: calc(calc(6 / var(--ion-grid-columns, 12)) * 100%)
+}
+
+// #upsideDownButton {
+//     transform: rotate(180deg);
+//     width: 100%;
+//     z-index: 2;
+// }
+
+// .split {
+//     height: 50%;
+//     width: 50%;
+//     position: fixed;
+//     z-index: 1;
+//     top: 0;
+//     overflow-x: hidden;
+//     padding-top: 70px;
+// }
 
 /*Left side control*/
-.left {
-    left: 0;
-    background-color: lightcoral;
-}
+// .left {
+//     left: 0;
+//     background-color: lightcoral;
+// }
 
-#leftButton {
-    bottom: 0;
-    position: absolute;
-    width: 100%;
-    z-index: 2;
-}
+// #leftButton {
+//     bottom: 0;
+//     position: absolute;
+//     width: 100%;
+//     z-index: 2;
+// }
 
 /*Right side control*/
-.right {
-    right: 0;
-    background-color: lightslategrey;
-}
+// .right {
+//     right: 0;
+//     background-color: lightslategrey;
+// }
 
