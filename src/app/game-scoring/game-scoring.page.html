@@ -1,20 +1,22 @@
-<ion-header>
+<!-- <ion-header>
 	<ion-toolbar>
     	<ion-title>Game Scoring</ion-title>
   	</ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content>
 
+	<ion-button id="leftButton" expand="block" (click)="presentActionSheet()">Log point scored</ion-button>
 	<div class="split left">
-		<ion-button id="leftButton" expand="block" (click)="presentActionSheet()">Log point scored</ion-button>
+		<p>3</p>
+		<!-- <ion-item>6</ion-item> -->
 	</div>
 
+	<ion-button id="upsideDownButton" expand="block" (click)="presentActionSheet()">Log point scored</ion-button>
 	<div class="split right">
-		<ion-button id="upsideDownButton" expand="block" (click)="presentActionSheet()">Log point scored</ion-button>
 	</div>
 
-	<ion-fab horizontal="center" vertical="center" slot="fixed">
+	<!-- <ion-fab horizontal="center" vertical="center" slot="fixed">
 		<ion-fab-button color="light">
 			<ion-icon name="add"></ion-icon>
 		</ion-fab-button>
@@ -34,6 +36,6 @@
 				<ion-icon>4</ion-icon>
 			</ion-fab-button>
 		</ion-fab-list>
-	</ion-fab>
+	</ion-fab> -->
 
 </ion-content>

@@ -91,13 +91,6 @@ export class KlaskService {
               , pointType:	"score"
               , opponent:	"Tom" 
           }
-          , { 
-              pointDateTime: "some datetime"
-              , scorer: "Trevor", gamePointNumber: 1
-              , scorerPointNumber: 1
-              , pointType:	"forfeit"
-              , opponent:	"Valeria" 
-          }
         ]
       }
       , {
