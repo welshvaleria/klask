@@ -9,22 +9,18 @@
     <ion-fab-button color="light">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
-    <ion-fab-list side="top">
-      <ion-fab-button color="primary">
-        <ion-icon><p>1</p></ion-icon>
-      </ion-fab-button>
-    </ion-fab-list>
     <ion-fab-list side="end">
       <ion-fab-button color="dark">
         <ion-icon>2</ion-icon>
       </ion-fab-button>
-    </ion-fab-list>
-    <ion-fab-list side="bottom">
-      <ion-fab-button color="secondary">
-        <ion-icon>3</ion-icon>
+      <ion-fab-button color="dark">
+        <ion-icon>2</ion-icon>
       </ion-fab-button>
     </ion-fab-list>
     <ion-fab-list side="start">
+      <ion-fab-button color="light">
+        <ion-icon>4</ion-icon>
+      </ion-fab-button>
       <ion-fab-button color="light">
         <ion-icon>4</ion-icon>
       </ion-fab-button>
@@ -32,5 +28,5 @@
   </ion-fab>
 
   <ion-button expand="block" (click)="presentActionSheet()">Log point scored</ion-button>
-  <ion-button size="large" (click)="showPicker()">Single Column Test</ion-button>
+  <ion-button id="upsideDownButton" expand="block" (click)="presentActionSheet()">Log point scored</ion-button>
 </ion-content>
