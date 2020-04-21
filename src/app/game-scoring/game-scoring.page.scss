@@ -1,3 +1,31 @@
 #upsideDownButton {
     transform: rotate(180deg)
 }
+
+.split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 70px;
+}
+
+/*Left side control*/
+.left {
+    left: 0;
+    background-color: lightcoral;
+}
+
+#leftButton {
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+}
+
+/*Right side control*/
+.right {
+    right: 0;
+    background-color: lightslategrey;
+}

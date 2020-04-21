@@ -5,6 +5,15 @@
 </ion-header>
 
 <ion-content>
+
+	<div class="split left">
+		<ion-button id="leftButton" expand="block" (click)="presentActionSheet()">Log point scored</ion-button>
+	</div>
+
+	<div class="split right">
+		<ion-button id="upsideDownButton" expand="block" (click)="presentActionSheet()">Log point scored</ion-button>
+	</div>
+
 	<ion-fab horizontal="center" vertical="center" slot="fixed">
 		<ion-fab-button color="light">
 			<ion-icon name="add"></ion-icon>
@@ -27,6 +36,4 @@
 		</ion-fab-list>
 	</ion-fab>
 
-	<ion-button expand="block" (click)="presentActionSheet()">Log point scored</ion-button>
-	<ion-button id="upsideDownButton" expand="block" (click)="presentActionSheet()">Log point scored</ion-button>
 </ion-content>
