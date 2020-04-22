@@ -28,24 +28,24 @@
 			</ion-row>
 			<ion-row class="score-row">
 				<ion-col class="left" size="5.9">
-					<ion-button class="ion-no-margin 
+					<ion-button id="player1"
+								class="ion-no-margin 
 									   ion-no-padding
 									   ion-color
 									   ion-color-primary"
 								expand="block" 
-								(click)="presentActionSheet()">
-						3
+								(click)="presentActionSheet(this)">
 					</ion-button>
 				</ion-col>
 				<ion-col size=".2"></ion-col>
 				<ion-col class="right" size="5.9">
-					<ion-button class="ion-no-margin
+					<ion-button id="player2"
+								class="ion-no-margin
 									   ion-no-padding
 									   ion-color
 									   ion-color-tertiary" 
 								expand="block" 
 								(click)="presentActionSheet()">
-						5
 					</ion-button>
 				</ion-col>
 			</ion-row>
