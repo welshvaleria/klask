@@ -16,26 +16,30 @@ export class GameScoringPage implements OnInit {
 	let scoreTime = Date.now();
 	
     await this.actionSheetController.create({
-      header: 'What happened...'
+      header: 'Point type...'
       //, subHeader: "Foo"
-      , buttons: [{
-          text: "Klask (opponent Klasked)"
+      , buttons: [
+      {
+          text: "Score (I scored)"
+          , handler: () => {
+                console.log("Normal point scored");
+          }
+      }
+      , { 
+          text: "Klask (opponent)"
           , handler: () => {
             console.log("Klasked");
             this.scores[scoreIndex] += 1
           }
-      }, {
-          text: "Loss of Control (by opponent)"
+      }
+      , {
+          text: "Loss of Control (opponent)"
           , handler: () => {
               	console.log("This person lost control");
           }
-      }, {
-          text: "Score (I scored)"
-          , handler: () => {
-              	console.log("Normal point scored");
-          }
-      }, {
-          text: "Biscuit (opponent collected 3 biscuits)"
+      }
+      , {
+          text: "Biscuit (opponent)"
           , handler: () => {
               	console.log("Biscuit point");
           }
