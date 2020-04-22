@@ -11,10 +11,8 @@ export class GameScoringPage implements OnInit {
 
   constructor(private actionSheetController : ActionSheetController) { }
 
-  async presentActionSheet(test) {
+  async presentActionSheet(scoreIndex) {
 
-	let player1 = document.querySelector("#player1");
-	let player2 = document.querySelector("#player1");
 	let scoreTime = Date.now();
 	
     await this.actionSheetController.create({
@@ -22,9 +20,8 @@ export class GameScoringPage implements OnInit {
       , buttons: [{
           text: "Klasked"
           , handler: () => {
-				  console.log(test);
-				  // TODO: How to get which button was clicked?
-				player1.innerHTML = (parseInt(document.querySelector("#player1").innerHTML, 10) + 1).toString();
+            console.log("Klasked");
+            this.scores[scoreIndex] += 1
           }
       }, {
           text: "Loss of Control"
@@ -53,8 +50,7 @@ export class GameScoringPage implements OnInit {
   } 
 
   ngOnInit() {
-	  document.querySelector("#player1").innerHTML = "0";
-	  document.querySelector("#player2").innerHTML = "0";
   }
 
+  scores = [0, 0]
 }
