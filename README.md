@@ -3,6 +3,13 @@
 Tracking burn-up charts and commentary in reverse chronological order...
 ```
 
+## 2020-04-22
+* Decided on structure of the game-scoring page
+* Removed features that are not following what we redefined the project to be
+* Get better soon Valeria!
+
+<img src="misc/2020-04-22-klask-burn-up.PNG" width="300" />
+
 ## 2020-04-20
 * Found that setup-game and game-scoring have the same amount of work
 * Decided the action sheet for the game-scoring page, for now...
