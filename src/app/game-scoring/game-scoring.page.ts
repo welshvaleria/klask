@@ -12,6 +12,15 @@ export class GameScoringPage implements OnInit {
   constructor(private actionSheetController : ActionSheetController) { }
 
   async presentActionSheet(scoreIndex) {
+
+	let testArray = [{
+		tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
+		, tourneyName: "trevorTest"
+        , gameNumber: 1 
+        , winner: ""
+		, loser: "" 
+		, points: []
+	}];
 	
     await this.actionSheetController.create({
       header: 'Points'
