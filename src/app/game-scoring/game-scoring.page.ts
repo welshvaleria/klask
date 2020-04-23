@@ -36,6 +36,11 @@ export class GameScoringPage implements OnInit {
 				this.addScoreAndUpdateGameData(scoreIndex, "biscuit");
           }
       }, {
+		  text: "-1 (Correction)"
+		  , handler: () => {
+			  this.removeAPoint(scoreIndex);
+		  } 
+	  }, { 
           text: "Cancel"
           , icon: "close"
           , role: "cancel"
@@ -62,6 +67,10 @@ export class GameScoringPage implements OnInit {
     };
 
     console.log(currGameData);
+  }
+
+  removeAPoint(index) {
+	this.scores[index] -= 1;
   }
 
   ngOnInit() {
