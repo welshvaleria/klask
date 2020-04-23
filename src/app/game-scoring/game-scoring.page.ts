@@ -20,7 +20,7 @@ export class GameScoringPage implements OnInit {
       //, subHeader: "Foo"
       , buttons: [
       {
-          text: "Score (I scored)"
+          text: "Score (me)"
           , handler: () => {
                 console.log("Normal point scored");
           }
@@ -45,12 +45,12 @@ export class GameScoringPage implements OnInit {
           }
       }
       , {
-        text: "-1 (Oops, correcting a mistake)"
+        text: "-1 (correction)"
         , handler: () => this.scores[scoreIndex] -= 1
       }
       , {
           text: "Cancel"
-          , icon: "close"
+          //, icon: "close"
           , role: "cancel"
           , handler: () => {
             	console.log("Cancelled");
