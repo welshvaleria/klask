@@ -26,14 +26,16 @@ export class KlaskService {
             }
           , { 
               pointDateTime: "some datetime"
-              , scorer: "Valeria", gamePointNumber: 2
+              , scorer: "Valeria"
+              , gamePointNumber: 2
               , scorerPointNumber: 1
               , pointType:	"klask"
               , opponent:	"Tom" 
             }
             , { 
               pointDateTime: "some datetime"
-              , scorer: "Valeria", gamePointNumber: 3
+              , scorer: "Valeria"
+              , gamePointNumber: 3
               , scorerPointNumber: 2
               , pointType:	"score"
               , opponent:	"Tom" 
@@ -64,7 +66,8 @@ export class KlaskService {
           }
           , { 
               pointDateTime: "some datetime"
-              , scorer: "Valeria", gamePointNumber: 7
+              , scorer: "Valeria"
+              , gamePointNumber: 7
               , scorerPointNumber: 3
               , pointType:	"biscuit"
               , opponent:	"Tom" 
@@ -72,21 +75,24 @@ export class KlaskService {
 
           , {
               pointDateTime: "some datetime"
-              , scorer: "Valeria", gamePointNumber: 8
+              , scorer: "Valeria"
+              , gamePointNumber: 8
               , scorerPointNumber: 4
               , pointType:	"score"
               , opponent:	"Tom" 
           }
           , { 
               pointDateTime: "some datetime"
-              , scorer: "Valeria", gamePointNumber: 9
+              , scorer: "Valeria"
+              , gamePointNumber: 9
               , scorerPointNumber: 5
               , pointType:	"loss-control"
               , opponent:	"Tom" 
           }
           , { 
               pointDateTime: "some datetime"
-              , scorer: "Valeria", gamePointNumber: 10
+              , scorer: "Valeria"
+              , gamePointNumber: 10
               , scorerPointNumber: 6
               , pointType:	"score"
               , opponent:	"Tom" 

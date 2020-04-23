@@ -11,35 +11,29 @@ export class GameScoringPage implements OnInit {
 
   constructor(private actionSheetController : ActionSheetController) { }
 
-  async presentActionSheet(test) {
-
-	let player1 = document.querySelector("#player1");
-	let player2 = document.querySelector("#player1");
-	let scoreTime = Date.now();
+  async presentActionSheet(scoreIndex) {
 	
     await this.actionSheetController.create({
       header: 'Points'
       , buttons: [{
           text: "Klasked"
           , handler: () => {
-				  console.log(test);
-				  // TODO: How to get which button was clicked?
-				player1.innerHTML = (parseInt(document.querySelector("#player1").innerHTML, 10) + 1).toString();
+            this.addScoreAndUpdateGameData(scoreIndex, "klask");
           }
       }, {
           text: "Loss of Control"
           , handler: () => {
-              	console.log("This person lost control");
+				this.addScoreAndUpdateGameData(scoreIndex, "loss of control");
           }
       }, {
           text: "Normal point"
           , handler: () => {
-              	console.log("Normal point scored");
+				this.addScoreAndUpdateGameData(scoreIndex, "score");
           }
       }, {
           text: "Biscuits"
           , handler: () => {
-              	console.log("Biscuit point");
+				this.addScoreAndUpdateGameData(scoreIndex, "biscuit");
           }
       }, {
           text: "Cancel"
@@ -52,9 +46,28 @@ export class GameScoringPage implements OnInit {
     }).then(res => res.present());
   } 
 
-  ngOnInit() {
-	  document.querySelector("#player1").innerHTML = "0";
-	  document.querySelector("#player2").innerHTML = "0";
+  addScoreAndUpdateGameData(index, pointType) {
+
+    this.scores[index] += 1;
+
+    let currGameData = {
+      pointDateTime: Date.now()
+      , scorer: "Trevor"
+      , gamePointNumber: this.scores.reduce((acc, x) => acc + x, 0)
+      , scorerPointNumber: function() {
+          this.scores[index]
+		}
+	  , pointType: pointType
+      , opponent: "Valeria"
+    };
+
+    console.log(currGameData);
   }
 
+  ngOnInit() {
+  }
+
+  scores = [0, 0]
+
 }
+
