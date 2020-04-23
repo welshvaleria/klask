@@ -65,7 +65,11 @@ export class GameScoringPage implements OnInit {
         text: "-1 (correction)"
         , handler: () => {
           console.log(this.scores);
-          this.scores = this.scores.filter(x => x.gamePointNumber != this.playerOneScore + this.playerTwoScore);
+          this.scores = this.scores
+            .filter(x => 
+              x.scorer != (scoreIndex == 0 ? "Trevor" : "Valeria")
+              || x.scorerPointNumber != (scoreIndex == 0 ? this.playerOneScore : this.playerTwoScore)
+            );
           console.log(this.scores);
         }
       }
