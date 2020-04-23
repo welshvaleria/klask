@@ -1,6 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { ActionSheetController } from '@ionic/angular';
 
+interface point {
+  pointDateTime: string;
+  scorer: string;
+  gamePointNumber: number;
+  scorerPointNumber: number;
+  pointType: string;
+  opponent: string;
+};
+
 @Component({
   selector: 'app-game-scoring',
   templateUrl: './game-scoring.page.html',
@@ -16,9 +25,9 @@ export class GameScoringPage implements OnInit {
 	let scoreTime = Date.now();
 	
     await this.actionSheetController.create({
-      header: 'Point type...'
+      //header: 'Point type...'
       //, subHeader: "Foo"
-      , buttons: [
+      buttons: [
       {
           text: "Score (me)"
           , handler: () => {
@@ -29,7 +38,15 @@ export class GameScoringPage implements OnInit {
           text: "Klask (opponent)"
           , handler: () => {
             console.log("Klasked");
-            this.scores[scoreIndex] += 1
+            this.scores = [...this.scores, {
+              pointDateTime: "blah"
+              , scorer: scoreIndex == 0 ? "Trevor" : "Valeria"
+              , opponent: scoreIndex == 1 ? "Trevor" : "Valeria"
+              , gamePointNumber: this.scores.length + 1
+              , scorerPointNumber: scoreIndex == 0 ? this.playerOneScore + 1 : this.playerTwoScore + 1
+              , pointType: "Klask"
+            }];
+            console.log(this.scores);
           }
       }
       , {
@@ -46,7 +63,11 @@ export class GameScoringPage implements OnInit {
       }
       , {
         text: "-1 (correction)"
-        , handler: () => this.scores[scoreIndex] -= 1
+        , handler: () => {
+          console.log(this.scores);
+          this.scores = this.scores.filter(x => x.gamePointNumber != this.playerOneScore + this.playerTwoScore);
+          console.log(this.scores);
+        }
       }
       , {
           text: "Cancel"
@@ -62,5 +83,15 @@ export class GameScoringPage implements OnInit {
   ngOnInit() {
   }
 
-  scores = [0, 0]
+  //scores = [0, 0];
+
+  scores: point[] = [];
+  
+  get playerOneScore() {
+    return this.scores.filter(x => x.scorer == "Trevor").length;
+  }
+
+  get playerTwoScore() {
+    return this.scores.filter(x => x.scorer == "Valeria").length;
+  }
 }
