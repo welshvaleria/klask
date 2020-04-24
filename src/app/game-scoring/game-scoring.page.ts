@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActionSheetController } from '@ionic/angular';
-// import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
 interface currentPointData {
 	pointDateTime: string;
@@ -22,16 +21,6 @@ export class GameScoringPage implements OnInit {
   constructor(private actionSheetController : ActionSheetController) { }
 
   async presentActionSheet(scoreIndex) {
-
-
-	// let testArray = [{
-	// 	tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
-	// 	, tourneyName: "trevorTest"
-    //     , gameNumber: 1 
-    //     , winner: ""
-	// 	, loser: "" 
-	// 	, points: []
-	// }];
 	
     await this.actionSheetController.create({
       header: 'Type of Point Scored'
@@ -39,31 +28,31 @@ export class GameScoringPage implements OnInit {
           text: "Klasked"
           , handler: () => {
 			this.addScoreAndUpdateGameData(scoreIndex, "klask");
-			// console.log(this.scores[scoreIndex]["scorer"]);
-			// this.checkForWinner();
           }
       }, {
           text: "Loss of Control"
           , handler: () => {
 				this.addScoreAndUpdateGameData(scoreIndex, "loss of control");
-				// this.checkForWinner();
           }
       }, {
           text: "Normal point"
           , handler: () => {
 				this.addScoreAndUpdateGameData(scoreIndex, "score");
-				// this.checkForWinner();
           }
       }, {
           text: "Biscuits"
           , handler: () => {
 				this.addScoreAndUpdateGameData(scoreIndex, "biscuit");
-				// this.checkForWinner();
           }
       }, {
 		  text: "-1 (Correction)"
 		  , handler: () => {
-			  this.scores.splice(this.scores.indexOf(scoreIndex), 1);
+			  console.log((scoreIndex == 0 ? "Trevor" : "Valeria"));
+			  console.log((scoreIndex == 0 ? this.playerOneScore : this.playerTwoScore));
+			  console.log
+			  this.scores = this.scores.filter(x => 
+				x.scorer != (scoreIndex == 0 ? "Trevor" : "Valeria") || x.scorerPointNumber != (scoreIndex == 0 ? this.playerOneScore : this.playerTwoScore)
+			  );
 			  console.log(this.scores);
 		  } 
 	  }, { 
@@ -79,6 +68,8 @@ export class GameScoringPage implements OnInit {
 
   addScoreAndUpdateGameData(index, pointType) {
 
+	this.isGameOver = ((index == 0 ? this.playerOneScore + 1 : this.playerTwoScore + 1) == 6 ? true : false);
+
 	this.scores = [...this.scores, {
 		pointDateTime: Date.now().toString()
 		, scorer: index == 0 ? "Trevor" : "Valeria"
@@ -88,14 +79,7 @@ export class GameScoringPage implements OnInit {
 		, pointType: pointType
 	}];
 
-    console.log(this.scores);
   }
-
-//   checkForWinner() {
-// 	  if (this.scores[0]["scorerPointNumber"] == 6) {
-// 		console.log(`Game over. ${this.scores[0]["scorer"]} wins.`);
-// 	  }
-//   }
 
   ngOnInit() {
   }
@@ -109,6 +93,8 @@ export class GameScoringPage implements OnInit {
   get playerTwoScore() {
 	return this.scores.filter(x => x.scorer == "Valeria").length;
   }
+
+  isGameOver = false;
 
 }
 
