@@ -38,14 +38,19 @@ export class GameScoringPage implements OnInit {
           text: "Klask (opponent)"
           , handler: () => {
             console.log("Klasked");
-            this.scores = [...this.scores, {
-              pointDateTime: "blah"
-              , scorer: scoreIndex == 0 ? "Trevor" : "Valeria"
-              , opponent: scoreIndex == 1 ? "Trevor" : "Valeria"
-              , gamePointNumber: this.scores.length + 1
-              , scorerPointNumber: scoreIndex == 0 ? this.playerOneScore + 1 : this.playerTwoScore + 1
-              , pointType: "Klask"
-            }];
+            console.log((scoreIndex == 0 ? this.playerOneScore + 1 : this.playerTwoScore + 1) == 6 ? "We Have a Winner" : "Keep Playing");
+            this.isGameOver = (scoreIndex == 0 ? this.playerOneScore + 1 : this.playerTwoScore + 1) == 6 ? true : false;
+            this.scores = [
+              ...this.scores
+              , {
+                pointDateTime: "blah"
+                , scorer: scoreIndex == 0 ? "Trevor" : "Valeria"
+                , opponent: scoreIndex == 1 ? "Trevor" : "Valeria"
+                , gamePointNumber: this.scores.length + 1
+                , scorerPointNumber: scoreIndex == 0 ? this.playerOneScore + 1 : this.playerTwoScore + 1
+                , pointType: "Klask"
+              }
+            ];
             console.log(this.scores);
           }
       }
@@ -98,4 +103,7 @@ export class GameScoringPage implements OnInit {
   get playerTwoScore() {
     return this.scores.filter(x => x.scorer == "Valeria").length;
   }
+
+  isGameOver = false;
+
 }
