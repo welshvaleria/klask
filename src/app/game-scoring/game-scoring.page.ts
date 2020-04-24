@@ -47,9 +47,10 @@ export class GameScoringPage implements OnInit {
       }, {
 		  text: "-1 (Correction)"
 		  , handler: () => {
-			  console.log((scoreIndex == 0 ? "Trevor" : "Valeria"));
-			  console.log((scoreIndex == 0 ? this.playerOneScore : this.playerTwoScore));
-			  console.log
+			  console.log(this.scores);
+			  this.scores.forEach(x => {
+				console.log(x.scorerPointNumber != (scoreIndex == 0 ? this.playerOneScore : this.playerTwoScore));
+			  })
 			  this.scores = this.scores.filter(x => 
 				x.scorer != (scoreIndex == 0 ? "Trevor" : "Valeria") || x.scorerPointNumber != (scoreIndex == 0 ? this.playerOneScore : this.playerTwoScore)
 			  );
