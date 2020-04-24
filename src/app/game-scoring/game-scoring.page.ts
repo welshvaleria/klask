@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActionSheetController } from '@ionic/angular';
-import { GameScoringPageRoutingModule } from './game-scoring-routing.module';
+// import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
 interface currentPointData {
 	pointDateTime: string;
@@ -9,7 +9,6 @@ interface currentPointData {
 	scorerPointNumber: number;
 	pointType: string;
 	opponent: string;
-
 }
 
 @Component({
@@ -23,6 +22,7 @@ export class GameScoringPage implements OnInit {
   constructor(private actionSheetController : ActionSheetController) { }
 
   async presentActionSheet(scoreIndex) {
+
 
 	// let testArray = [{
 	// 	tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
