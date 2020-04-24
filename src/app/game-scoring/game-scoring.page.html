@@ -5,7 +5,7 @@
 			<ion-title *ngSwitchCase = "!isGameOver" style="text-align: center;">Game 1</ion-title>
 			<ion-title *ngSwitchCase = "isGameOver" style="text-align: center;">G A M E  O V E R !</ion-title>
 		</ng-container>
-		
+
   	</ion-toolbar>
 </ion-header>
 
@@ -14,14 +14,18 @@
 	<ion-grid class="ion-no-padding main-grid">
 		<div class="height-box">
 			<ion-row class="name-row">
-				<ion-col class="left" size="5.9">
+				<ion-col class="left" size="5.8">
 					<ion-item class="ion-no-margin
 									 ion-no-padding">
 						<ion-label>Trevor</ion-label>
 					</ion-item>
 				</ion-col>
-				<ion-col size="0.2"></ion-col>
-				<ion-col class="right" size="5.9">
+				<ion-col size="0.4">
+					<ion-button style="margin: auto;">
+						<ion-icon name="repeat-outline"></ion-icon>
+					</ion-button>
+				</ion-col>
+				<ion-col class="right" size="5.8">
 					<ion-item class="ion-no-margin 
 									 ion-no-padding">
 						<ion-icon class="ion-text-left"name="caret-forward-outline"></ion-icon>
@@ -32,7 +36,7 @@
 				</ion-col>
 			</ion-row>
 			<ion-row class="score-row">
-				<ion-col class="left" size="5.9">
+				<ion-col class="left" size="5.8">
 					<ion-button id="player1"
 								class="ion-no-margin 
 									   ion-no-padding
@@ -43,8 +47,8 @@
 						{{ playerOneScore }}
 					</ion-button>
 				</ion-col>
-				<ion-col size=".2"></ion-col>
-				<ion-col class="right" size="5.9">
+				<ion-col size=".4"></ion-col>
+				<ion-col class="right" size="5.8">
 					<ion-button id="player2"
 								class="ion-no-margin
 									   ion-no-padding

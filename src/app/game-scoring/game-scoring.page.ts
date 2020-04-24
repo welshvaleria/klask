@@ -47,10 +47,11 @@ export class GameScoringPage implements OnInit {
       }, {
 		  text: "-1 (Correction)"
 		  , handler: () => {
-			  console.log(this.scores);
-			  this.scores.forEach(x => {
-				console.log(x.scorerPointNumber != (scoreIndex == 0 ? this.playerOneScore : this.playerTwoScore));
-			  })
+			  // This creates a new array via filtering the existing one. 
+			  // It will filter out the entry where both condition expressions return false. (Why is behaving like &&???)
+			  //	Ex: Player "Trevor" requests to change his score from 2 to 1.
+			  //		"Trevor" != "Trevor" returns false. 2 != 2 returns false. 
+			  //	    The request to delete Trevor's second point gets removed in the new scores array.
 			  this.scores = this.scores.filter(x => 
 				x.scorer != (scoreIndex == 0 ? "Trevor" : "Valeria") || x.scorerPointNumber != (scoreIndex == 0 ? this.playerOneScore : this.playerTwoScore)
 			  );
