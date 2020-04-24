@@ -17,21 +17,14 @@
 				<ion-col class="left" size="5.8">
 					<ion-item class="ion-no-margin
 									 ion-no-padding">
-						<ion-label>Trevor</ion-label>
+						<div class="playerNameDisplay">Trevor</div>
 					</ion-item>
 				</ion-col>
-				<ion-col size="0.4">
-					<ion-button style="margin: auto;">
-						<ion-icon name="repeat-outline"></ion-icon>
-					</ion-button>
-				</ion-col>
+				<ion-col size="0.4"></ion-col>
 				<ion-col class="right" size="5.8">
 					<ion-item class="ion-no-margin 
 									 ion-no-padding">
-						<ion-icon class="ion-text-left"name="caret-forward-outline"></ion-icon>
-						<ion-label class="ion-text-right">
-							Valeria
-						</ion-label>
+						<div class="playerNameDisplay">Valeria</div>
 					</ion-item>
 				</ion-col>
 			</ion-row>
@@ -57,6 +50,13 @@
 								expand="block" 
 								(click)="presentActionSheet(1)">
 						{{ playerTwoScore }}
+					</ion-button>
+				</ion-col>
+			</ion-row>
+			<ion-row class="swap-side-row">
+				<ion-col size="12">
+					<ion-button>
+						<ion-icon name="repeat-outline"></ion-icon>
 					</ion-button>
 				</ion-col>
 			</ion-row>

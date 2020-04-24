@@ -1,6 +1,7 @@
 .main-grid {
     margin-left: 24px;
     margin-right: 24px;
+    margin-top: 14px;
     --ion-grid-padding: 5px;
     justify-self: center;
 }
@@ -19,38 +20,6 @@ ion-col {
     max-width: calc(calc(6 / var(--ion-grid-columns, 12)) * 100%)
 }
 
-// #upsideDownButton {
-//     transform: rotate(180deg);
-//     width: 100%;
-//     z-index: 2;
-// }
-
-// .split {
-//     height: 50%;
-//     width: 50%;
-//     position: fixed;
-//     z-index: 1;
-//     top: 0;
-//     overflow-x: hidden;
-//     padding-top: 70px;
-// }
-
-/*Left side control*/
-// .left {
-//     left: 0;
-//     background-color: lightcoral;
-// }
-
-// #leftButton {
-//     bottom: 0;
-//     position: absolute;
-//     width: 100%;
-//     z-index: 2;
-// }
-
-/*Right side control*/
-// .right {
-//     right: 0;
-//     background-color: lightslategrey;
-// }
-
+.playerNameDisplay {
+    margin: 0 auto;
+}
