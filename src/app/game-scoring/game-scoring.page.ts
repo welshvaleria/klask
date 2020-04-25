@@ -23,7 +23,8 @@ export class GameScoringPage implements OnInit {
   async presentActionSheet(scoreIndex) {
 	
     await this.actionSheetController.create({
-      header: 'Type of Point Scored'
+	  header: 'Type of Point Scored'
+	  , mode: "md"
       , buttons: [{
           text: "Klasked"
           , handler: () => {
@@ -97,6 +98,5 @@ export class GameScoringPage implements OnInit {
   }
 
   isGameOver = false;
-
 }
 
