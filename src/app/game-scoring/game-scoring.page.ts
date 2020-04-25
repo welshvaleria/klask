@@ -88,10 +88,14 @@ export class GameScoringPage implements OnInit {
   }
 
   switchPlayerSides() {
+
+	// TODO: DOM work here? 
 	  console.log("Sides switched.");
   }
 
   forfeitGame() {
+
+	// TODO: When this button is clicked I want it to create a 6 item array, all with point types "forfeit" for the forfeitting player.
 	  console.log("Game forfeitted by ADD FUNCTIONALITY HERE");
   }
 
@@ -110,6 +114,6 @@ export class GameScoringPage implements OnInit {
   }
 
   isGameOver = false;
-  
+
 }
 
