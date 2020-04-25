@@ -54,7 +54,7 @@ export class GameScoringPage implements OnInit {
 			  //		"Trevor" != "Trevor" returns false. 2 != 2 returns false. 
 			  //	    The request to delete Trevor's second point gets removed in the new scores array.
 			  this.scores = this.scores.filter(x => 
-				x.scorer != (scoreIndex == 0 ? "Trevor" : "Valeria") || x.scorerPointNumber != (scoreIndex == 0 ? this.playerOneScore : this.playerTwoScore)
+				x.scorer != (scoreIndex == 0 ? this.playerOne : this.playerTwo) || x.scorerPointNumber != (scoreIndex == 0 ? this.playerOneScore : this.playerTwoScore)
 			  );
 			  console.log(this.scores);
 		  } 
@@ -83,21 +83,13 @@ export class GameScoringPage implements OnInit {
 		, scorerPointNumber: index == 0 ? this.playerOneScore + 1 : this.playerTwoScore + 1 
 		, pointType: pointType
 	}];
+  console.log(`Player one: ${this.playerOne}, Player two: ${this.playerTwo}`);
 
 	console.log(this.scores);
   }
 
   doSwitch() {
-    this.switchPlayerSides(document.getElementById("playerOneSlot"), document.getElementById("playerTwoSlot"));
-  }
-
-  switchPlayerSides(object1, object2) {
-
-    let placeholder = document.createElement("div");
-    object1.parentNode.insertBefore(placeholder, object1);
-    object2.parentNode.insertBefore(object1, object2);
-    placeholder.parentNode.insertBefore(object2, placeholder);
-    placeholder.parentNode.removeChild(placeholder);
+    [this.playerOne, this.playerTwo] = [this.playerTwo, this.playerOne];
   }
 
   forfeitGame() {
@@ -113,14 +105,16 @@ export class GameScoringPage implements OnInit {
   scores: currentPointData[] = [];
 
   get playerOneScore() {
-	  return this.scores.filter(x => x.scorer == "Trevor").length;
+	  return this.scores.filter(x => x.scorer == this.playerOne).length;
   }
 
   get playerTwoScore() {
-	return this.scores.filter(x => x.scorer == "Valeria").length;
+	  return this.scores.filter(x => x.scorer == this.playerTwo).length;
   }
 
   isGameOver = false;
+  playerOne = "Trevor"; // Here is where we will store the player names from the game setup screen
+  playerTwo = "Valeria";// This line too
 
 }
 
