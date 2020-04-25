@@ -7,7 +7,7 @@ interface currentPointData {
 	gamePointNumber: number;
 	scorerPointNumber: number;
 	pointType: string;
-	opponent: string;
+  opponent: string;
 }
 
 @Component({
@@ -87,10 +87,17 @@ export class GameScoringPage implements OnInit {
 	console.log(this.scores);
   }
 
-  switchPlayerSides() {
+  doSwitch() {
+    this.switchPlayerSides(document.getElementById("playerOneSlot"), document.getElementById("playerTwoSlot"));
+  }
 
-	// TODO: DOM work here? 
-	  console.log("Sides switched.");
+  switchPlayerSides(object1, object2) {
+
+    let placeholder = document.createElement("div");
+    object1.parentNode.insertBefore(placeholder, object1);
+    object2.parentNode.insertBefore(object1, object2);
+    placeholder.parentNode.insertBefore(object2, placeholder);
+    placeholder.parentNode.removeChild(placeholder);
   }
 
   forfeitGame() {

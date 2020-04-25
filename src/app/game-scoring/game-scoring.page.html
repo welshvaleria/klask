@@ -9,7 +9,7 @@
 
 <ion-content>
 	<div class="flex-container">
-		<ion-card style="flex-grow: 2;">
+		<ion-card id="playerOneSlot">
 			<ion-card-header class="ion-text-center player-name">
 				Trevor
 			</ion-card-header>
@@ -29,7 +29,7 @@
 						class="swap-button 
 							   ion-no-padding"
 						expand="block"
-						(click)="switchPlayerSides()">
+						(click)="doSwitch()">
 				<ion-icon name="repeat-outline"></ion-icon>
 			</ion-button>
 			<ion-button color="danger"
@@ -39,7 +39,7 @@
 				FORFEIT
 			</ion-button>
 		</div>
-		<ion-card>
+		<ion-card id="playerTwoSlot">
 			<ion-card-header class="ion-text-center player-name">
 				Valeria
 			</ion-card-header>
