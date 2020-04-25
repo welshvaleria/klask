@@ -28,17 +28,21 @@
 			<ion-button color="warning"
 						class="swap-button 
 							   ion-no-padding"
-						expand="block">
+						expand="block"
+						(click)="switchPlayerSides()">
 				<ion-icon name="repeat-outline"></ion-icon>
 			</ion-button>
 			<ion-button color="danger"
 						class="ion-no-padding"
-						expand="block">
+						expand="block"
+						(click)="forfeitGame()">
 				FORFEIT
 			</ion-button>
 		</div>
 		<ion-card>
-			<ion-card-header class="ion-text-center player-name">Valeria</ion-card-header>
+			<ion-card-header class="ion-text-center player-name">
+				Valeria
+			</ion-card-header>
 			<ion-card-content>
 				<ion-button id="player2"
 							color="dark"

@@ -72,19 +72,31 @@ export class GameScoringPage implements OnInit {
   addScoreAndUpdateGameData(index, pointType) {
 
 	this.isGameOver = ((index == 0 ? this.playerOneScore + 1 : this.playerTwoScore + 1) == 6 ? true : false);
+	let playerGetterForNow = document.querySelectorAll(".player-name");
+	let playerNames = Array.from(playerGetterForNow).map(x => x.innerHTML.trim());
 
 	this.scores = [...this.scores, {
 		pointDateTime: Date.now().toString()
-		, scorer: index == 0 ? "Trevor" : "Valeria"
-		, opponent: index == 1 ? "Trevor" : "Valeria"
+		, scorer: playerNames[index]
+		, opponent: index == 1 ? playerNames[index - 1] : playerNames[index + 1]
 		, gamePointNumber: this.scores.length + 1
 		, scorerPointNumber: index == 0 ? this.playerOneScore + 1 : this.playerTwoScore + 1 
 		, pointType: pointType
 	}];
 
+	console.log(this.scores);
+  }
+
+  switchPlayerSides() {
+	  console.log("Sides switched.");
+  }
+
+  forfeitGame() {
+	  console.log("Game forfeitted by ADD FUNCTIONALITY HERE");
   }
 
   ngOnInit() {
+	  
   }
 
   scores: currentPointData[] = [];
@@ -98,5 +110,6 @@ export class GameScoringPage implements OnInit {
   }
 
   isGameOver = false;
+  
 }
 
