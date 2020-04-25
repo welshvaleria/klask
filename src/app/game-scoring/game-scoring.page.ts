@@ -28,7 +28,7 @@ export class GameScoringPage implements OnInit {
       , buttons: [{
           text: "Klasked"
           , handler: () => {
-			this.addScoreAndUpdateGameData(scoreIndex, "klask");
+				this.addScoreAndUpdateGameData(scoreIndex, "klask");
           }
       }, {
           text: "Loss of Control"
@@ -48,15 +48,15 @@ export class GameScoringPage implements OnInit {
       }, {
 		  text: "-1 (Correction)"
 		  , handler: () => {
-			  // This creates a new array via filtering the existing one. 
-			  // It will filter out the entry where both condition expressions return false. (Why is behaving like &&???)
-			  //	Ex: Player "Trevor" requests to change his score from 2 to 1.
-			  //		"Trevor" != "Trevor" returns false. 2 != 2 returns false. 
-			  //	    The request to delete Trevor's second point gets removed in the new scores array.
-			  this.scores = this.scores.filter(x => 
-				x.scorer != (scoreIndex == 0 ? this.playerOne : this.playerTwo) || x.scorerPointNumber != (scoreIndex == 0 ? this.playerOneScore : this.playerTwoScore)
-			  );
-			  console.log(this.scores);
+				// This creates a new array via filtering the existing one. 
+				// It will filter out the entry where both condition expressions return false. (Why is behaving like &&???)
+				//	Ex: Player "Trevor" requests to change his score from 2 to 1.
+				//		  "Trevor" != "Trevor" returns false. 2 != 2 returns false. 
+				//	    The request to delete Trevor's second point gets removed in the new scores array.
+				this.scores = this.scores.filter(x => 
+					x.scorer != (scoreIndex == 0 ? this.playerOne : this.playerTwo) || x.scorerPointNumber != (scoreIndex == 0 ? this.playerOneScore : this.playerTwoScore)
+				);
+				console.log(this.scores);
 		  } 
 	  }, { 
           text: "Cancel"
@@ -83,9 +83,6 @@ export class GameScoringPage implements OnInit {
 		, scorerPointNumber: index == 0 ? this.playerOneScore + 1 : this.playerTwoScore + 1 
 		, pointType: pointType
 	}];
-  console.log(`Player one: ${this.playerOne}, Player two: ${this.playerTwo}`);
-
-	console.log(this.scores);
   }
 
   doSwitch() {
@@ -98,11 +95,12 @@ export class GameScoringPage implements OnInit {
 	  console.log("Game forfeitted by ADD FUNCTIONALITY HERE");
   }
 
-  ngOnInit() {
-	  
-  }
+  ngOnInit() {}
 
   scores: currentPointData[] = [];
+  isGameOver = false;
+  playerOne = "Trevor"; // Here is where we will store the player names from the game setup screen
+  playerTwo = "Valeria";// This line too
 
   get playerOneScore() {
 	  return this.scores.filter(x => x.scorer == this.playerOne).length;
@@ -112,9 +110,6 @@ export class GameScoringPage implements OnInit {
 	  return this.scores.filter(x => x.scorer == this.playerTwo).length;
   }
 
-  isGameOver = false;
-  playerOne = "Trevor"; // Here is where we will store the player names from the game setup screen
-  playerTwo = "Valeria";// This line too
 
 }
 
