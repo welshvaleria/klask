@@ -25,14 +25,14 @@ export class GameScoringPage implements OnInit {
 		header: "Who is forfeitting?"
 		, mode: "md"
 		, buttons: [{
-			text: this.playerOne
+			text: this.players[0]
 			, handler: () => {
-				this.forfeitGame(this.playerOne);
+				this.forfeitGame(this.players[0]);
 			}
 		}, {
-			text: this.playerTwo
+			text: this.players[1]
 			, handler: () => {
-				this.forfeitGame(this.playerTwo);
+				this.forfeitGame(this.players[1]);
 			}
 		}]
 	  }).then(res => res.present());
@@ -41,7 +41,6 @@ export class GameScoringPage implements OnInit {
   forfeitGame(player) {
 	this.isGameOver = true;
 	console.log(`${player} has forfeitted.`);
-	// TODO: When this button is clicked I want it to create a 6 item array, all with point types "forfeit" for the forfeitting player.
   }
 
   async presentActionSheet(scoreIndex) {
@@ -78,7 +77,7 @@ export class GameScoringPage implements OnInit {
 				//		  "Trevor" != "Trevor" returns false. 2 != 2 returns false. 
 				//	    The request to delete Trevor's second point gets removed in the new scores array.
 				this.scores = this.scores.filter(x => 
-					x.scorer != (scoreIndex == 0 ? this.playerOne : this.playerTwo) || x.scorerPointNumber != (scoreIndex == 0 ? this.playerOneScore : this.playerTwoScore)
+					x.scorer != (scoreIndex == 0 ? this.players[0] : this.players[1]) || x.scorerPointNumber != (scoreIndex == 0 ? this.playerOneScore : this.playerTwoScore)
 				);
 				console.log(this.scores);
 		  } 
@@ -86,9 +85,6 @@ export class GameScoringPage implements OnInit {
           text: "Cancel"
           , icon: "close"
           , role: "cancel"
-          , handler: () => {
-            	console.log("Cancelled");
-          }
       }]
     }).then(res => res.present());
   } 
@@ -101,8 +97,8 @@ export class GameScoringPage implements OnInit {
 
 	this.scores = [...this.scores, {
 		pointDateTime: Date.now().toString()
-		, scorer: playerNames[index]
-		, opponent: index == 1 ? playerNames[index - 1] : playerNames[index + 1]
+		, scorer: this.players[index]
+		, opponent: index == 1 ? this.players[index - 1] : this.players[index + 1]
 		, gamePointNumber: this.scores.length + 1
 		, scorerPointNumber: index == 0 ? this.playerOneScore + 1 : this.playerTwoScore + 1 
 		, pointType: pointType
@@ -110,22 +106,21 @@ export class GameScoringPage implements OnInit {
   }
 
   doSwitch() {
-    [this.playerOne, this.playerTwo] = [this.playerTwo, this.playerOne];
+    [this.players[0], this.players[1]] = [this.players[1], this.players[0]];
   }
 
   ngOnInit() {}
 
   scores: currentPointData[] = [];
   isGameOver = false;
-  playerOne = "Trevor"; // Here is where we will store the player names from the game setup screen
-  playerTwo = "Valeria";// This line too
+  players = ["Trevor", "Valeria"]; // To be filled in from the game setup page
 
   get playerOneScore() {
-	  return this.scores.filter(x => x.scorer == this.playerOne).length;
+	  return this.scores.filter(x => x.scorer == this.players[0]).length;
   }
 
   get playerTwoScore() {
-	  return this.scores.filter(x => x.scorer == this.playerTwo).length;
+	  return this.scores.filter(x => x.scorer == this.players[1]).length;
   }
 
 
