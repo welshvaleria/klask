@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActionSheetController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
 
 interface currentPointData {
 	pointDateTime: string;
@@ -18,7 +19,22 @@ interface currentPointData {
 
 export class GameScoringPage implements OnInit {
 
-  constructor(private actionSheetController : ActionSheetController) { }
+  constructor(private actionSheetController : ActionSheetController, private alertController : AlertController) { }
+
+  async gameEndConfirmationAlert() {
+	  await this.alertController.create({
+		header: "Test header"
+		, subHeader: "Test subheader"
+		, message: "Test message"
+		, buttons: ['Yes', 'No']
+	  }).then(alert => alert.present());
+  }
+
+  alertTester() {
+	if (this.isGameOver) {
+		this.gameEndConfirmationAlert();
+	}
+  }
 
   async forfeitActionSheet() {
 	  await this.actionSheetController.create({
@@ -27,20 +43,25 @@ export class GameScoringPage implements OnInit {
 		, buttons: [{
 			text: this.players[0]
 			, handler: () => {
-				this.forfeitGame(this.players[0]);
+				this.forfeitGame(0);
 			}
 		}, {
 			text: this.players[1]
 			, handler: () => {
-				this.forfeitGame(this.players[1]);
+				this.forfeitGame(1);
 			}
+		}, {
+			text: "Cancel"
+			, icon: "close"
+			, role: "cancel"
 		}]
 	  }).then(res => res.present());
   }
 
-  forfeitGame(player) {
+  forfeitGame(playerNumber) {
 	this.isGameOver = true;
-	console.log(`${player} has forfeitted.`);
+	this.winner = (playerNumber == 0 ? this.players[playerNumber + 1] : this.players[playerNumber - 1]);
+	this.alertTester();
   }
 
   async presentActionSheet(scoreIndex) {
@@ -114,6 +135,7 @@ export class GameScoringPage implements OnInit {
   scores: currentPointData[] = [];
   isGameOver = false;
   players = ["Trevor", "Valeria"]; // To be filled in from the game setup page
+  winner = null;
 
   get playerOneScore() {
 	  return this.scores.filter(x => x.scorer == this.players[0]).length;
