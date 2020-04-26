@@ -20,6 +20,30 @@ export class GameScoringPage implements OnInit {
 
   constructor(private actionSheetController : ActionSheetController) { }
 
+  async forfeitActionSheet() {
+	  await this.actionSheetController.create({
+		header: "Who is forfeitting?"
+		, mode: "md"
+		, buttons: [{
+			text: this.playerOne
+			, handler: () => {
+				this.forfeitGame(this.playerOne);
+			}
+		}, {
+			text: this.playerTwo
+			, handler: () => {
+				this.forfeitGame(this.playerTwo);
+			}
+		}]
+	  }).then(res => res.present());
+  }
+
+  forfeitGame(player) {
+	this.isGameOver = true;
+	console.log(`${player} has forfeitted.`);
+	// TODO: When this button is clicked I want it to create a 6 item array, all with point types "forfeit" for the forfeitting player.
+  }
+
   async presentActionSheet(scoreIndex) {
 	
     await this.actionSheetController.create({
@@ -87,12 +111,6 @@ export class GameScoringPage implements OnInit {
 
   doSwitch() {
     [this.playerOne, this.playerTwo] = [this.playerTwo, this.playerOne];
-  }
-
-  forfeitGame() {
-
-	// TODO: When this button is clicked I want it to create a 6 item array, all with point types "forfeit" for the forfeitting player.
-	  console.log("Game forfeitted by ADD FUNCTIONALITY HERE");
   }
 
   ngOnInit() {}
