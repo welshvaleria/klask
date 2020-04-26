@@ -26,7 +26,7 @@ export class GameScoringPage implements OnInit {
 		header: `${this.winner} won!`
 		, backdropDismiss: false
 		, subHeader: this.subHeaderDisplay()
-		, message: "Test message"
+		, message: `Final Score: ${this.winner} - ${this.loser}`
 		, buttons: ['Confirm', 'Deny']
 	  }).then(alert => alert.present());
   }
@@ -62,12 +62,14 @@ export class GameScoringPage implements OnInit {
   }
 
   forfeitGame(playerNumber) {
+	  
 	this.forfeitted = true;
 	this.isGameOver = true;
 	this.winner = (playerNumber == 0 ? this.players[playerNumber + 1] : this.players[playerNumber - 1]);
 	this.loser = this.players[playerNumber];
 	// Build a 6 length array with the forfeitter as the loser and all pointTypes = "forfeit"
-	for (let i = 0; i < 6; i++) {
+
+	for (let i = (playerNumber == 0 ? this.playerTwoScore : this.playerOneScore); i < 6; i++) {
 		this.scores = [...this.scores, {
 			pointDateTime: Date.now().toString()
 			, scorer: this.winner
@@ -77,6 +79,7 @@ export class GameScoringPage implements OnInit {
 			, pointType: "forfeit"
 		}];
 	}
+	console.log(this.scores);
 	this.gameEndConfirmationAlert();
   }
 
