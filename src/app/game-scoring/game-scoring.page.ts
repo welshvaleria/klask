@@ -23,11 +23,20 @@ export class GameScoringPage implements OnInit {
 
   async gameEndConfirmationAlert() {
 	  await this.alertController.create({
-		header: "Test header"
-		, subHeader: "Test subheader"
+		header: `${this.winner} won!`
+		, backdropDismiss: false
+		, subHeader: this.subHeaderDisplay()
 		, message: "Test message"
 		, buttons: ['Confirm', 'Deny']
 	  }).then(alert => alert.present());
+  }
+
+  subHeaderDisplay() {
+	  if (this.forfeitted) {
+		  return `${this.loser} has forfeitted.`;
+	  } else {
+		  return null;
+	  }
   }
 
   async forfeitActionSheet() {
@@ -53,8 +62,10 @@ export class GameScoringPage implements OnInit {
   }
 
   forfeitGame(playerNumber) {
+	this.forfeitted = true;
 	this.isGameOver = true;
 	this.winner = (playerNumber == 0 ? this.players[playerNumber + 1] : this.players[playerNumber - 1]);
+	this.loser = this.players[playerNumber];
 	// Build a 6 length array with the forfeitter as the loser and all pointTypes = "forfeit"
 	for (let i = 0; i < 6; i++) {
 		this.scores = [...this.scores, {
@@ -118,9 +129,7 @@ export class GameScoringPage implements OnInit {
   addScoreAndUpdateGameData(index, pointType) {
 
 	this.isGameOver = ((index == 0 ? this.playerOneScore + 1 : this.playerTwoScore + 1) == 6 ? true : false);
-	if (this.isGameOver) {
-		this.gameEndConfirmationAlert();
-	}
+	if (this.isGameOver) this.gameEndConfirmationAlert();
 
 	this.scores = [...this.scores, {
 		pointDateTime: Date.now().toString()
@@ -142,6 +151,8 @@ export class GameScoringPage implements OnInit {
   isGameOver = false;
   players = ["Trevor", "Valeria"]; // To be filled in from the game setup page
   winner = null;
+  loser = null;
+  forfeitted = false;
 
   get playerOneScore() {
 	  return this.scores.filter(x => x.scorer == this.players[0]).length;
@@ -150,7 +161,4 @@ export class GameScoringPage implements OnInit {
   get playerTwoScore() {
 	  return this.scores.filter(x => x.scorer == this.players[1]).length;
   }
-
-
 }
-
