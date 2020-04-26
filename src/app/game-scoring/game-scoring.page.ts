@@ -26,14 +26,8 @@ export class GameScoringPage implements OnInit {
 		header: "Test header"
 		, subHeader: "Test subheader"
 		, message: "Test message"
-		, buttons: ['Confirm']
+		, buttons: ['Confirm', 'Deny']
 	  }).then(alert => alert.present());
-  }
-
-  alertTester() {
-	if (this.isGameOver) {
-		this.gameEndConfirmationAlert();
-	}
   }
 
   async forfeitActionSheet() {
@@ -61,7 +55,6 @@ export class GameScoringPage implements OnInit {
   forfeitGame(playerNumber) {
 	this.isGameOver = true;
 	this.winner = (playerNumber == 0 ? this.players[playerNumber + 1] : this.players[playerNumber - 1]);
-	this.alertTester();
 	// Build a 6 length array with the forfeitter as the loser and all pointTypes = "forfeit"
 	for (let i = 0; i < 6; i++) {
 		this.scores = [...this.scores, {
@@ -73,7 +66,7 @@ export class GameScoringPage implements OnInit {
 			, pointType: "forfeit"
 		}];
 	}
-	console.log(this.scores);
+	this.gameEndConfirmationAlert();
   }
 
   async presentActionSheet(scoreIndex) {
@@ -125,6 +118,9 @@ export class GameScoringPage implements OnInit {
   addScoreAndUpdateGameData(index, pointType) {
 
 	this.isGameOver = ((index == 0 ? this.playerOneScore + 1 : this.playerTwoScore + 1) == 6 ? true : false);
+	if (this.isGameOver) {
+		this.gameEndConfirmationAlert();
+	}
 
 	this.scores = [...this.scores, {
 		pointDateTime: Date.now().toString()
