@@ -26,7 +26,7 @@ export class GameScoringPage implements OnInit {
 		header: `${this.winner} won!`
 		, backdropDismiss: false
 		, subHeader: this.subHeaderDisplay()
-		, message: `Final Score: ${this.winner} - ${this.loser}`
+		, message: `Final Score: 6 - ${Math.min(this.playerOneScore, this.playerTwoScore)}`
 		, buttons: ['Confirm', 'Deny']
 	  }).then(alert => alert.present());
   }
@@ -61,29 +61,28 @@ export class GameScoringPage implements OnInit {
 	  }).then(res => res.present());
   }
 
-  forfeitGame(playerNumber) {
-	  
+  forfeitGame(playerIndex) {
+
 	this.forfeitted = true;
 	this.isGameOver = true;
-	this.winner = (playerNumber == 0 ? this.players[playerNumber + 1] : this.players[playerNumber - 1]);
-	this.loser = this.players[playerNumber];
-	// Build a 6 length array with the forfeitter as the loser and all pointTypes = "forfeit"
+	this.winner = (playerIndex == 0 ? this.players[playerIndex + 1] : this.players[playerIndex - 1]);
+	this.loser = this.players[playerIndex];
 
-	for (let i = (playerNumber == 0 ? this.playerTwoScore : this.playerOneScore); i < 6; i++) {
+	for (let i = (playerIndex == 0 ? this.playerTwoScore : this.playerOneScore); i < 6; i++) {
 		this.scores = [...this.scores, {
 			pointDateTime: Date.now().toString()
 			, scorer: this.winner
-			, opponent: this.players[playerNumber]
+			, opponent: this.players[playerIndex]
 			, gamePointNumber: i + 1
-			, scorerPointNumber: playerNumber == 0 ? this.playerOneScore + 1 : this.playerTwoScore + 1
+			, scorerPointNumber: playerIndex == 0 ? this.playerOneScore + 1 : this.playerTwoScore + 1
 			, pointType: "forfeit"
 		}];
 	}
-	console.log(this.scores);
+
 	this.gameEndConfirmationAlert();
   }
 
-  async presentActionSheet(scoreIndex) {
+  async presentActionSheet(playerIndex) {
 	
     await this.actionSheetController.create({
 	  header: 'Type of Point Scored'
@@ -91,22 +90,22 @@ export class GameScoringPage implements OnInit {
       , buttons: [{
           text: "Klasked"
           , handler: () => {
-				this.addScoreAndUpdateGameData(scoreIndex, "klask");
+				this.addScoreAndUpdateGameData(playerIndex, "klask");
           }
       }, {
           text: "Loss of Control"
           , handler: () => {
-				this.addScoreAndUpdateGameData(scoreIndex, "loss of control");
+				this.addScoreAndUpdateGameData(playerIndex, "loss of control");
           }
       }, {
           text: "Normal point"
           , handler: () => {
-				this.addScoreAndUpdateGameData(scoreIndex, "score");
+				this.addScoreAndUpdateGameData(playerIndex, "score");
           }
       }, {
           text: "Biscuits"
           , handler: () => {
-				this.addScoreAndUpdateGameData(scoreIndex, "biscuit");
+				this.addScoreAndUpdateGameData(playerIndex, "biscuit");
           }
       }, {
 		  text: "-1 (Correction)"
@@ -117,7 +116,7 @@ export class GameScoringPage implements OnInit {
 				//		  "Trevor" != "Trevor" returns false. 2 != 2 returns false. 
 				//	    The request to delete Trevor's second point gets removed in the new scores array.
 				this.scores = this.scores.filter(x => 
-					x.scorer != (scoreIndex == 0 ? this.players[0] : this.players[1]) || x.scorerPointNumber != (scoreIndex == 0 ? this.playerOneScore : this.playerTwoScore)
+					x.scorer != (playerIndex == 0 ? this.players[0] : this.players[1]) || x.scorerPointNumber != (playerIndex == 0 ? this.playerOneScore : this.playerTwoScore)
 				);
 				console.log(this.scores);
 		  } 
@@ -129,19 +128,29 @@ export class GameScoringPage implements OnInit {
     }).then(res => res.present());
   } 
 
-  addScoreAndUpdateGameData(index, pointType) {
+  addScoreAndUpdateGameData(playerIndex, pointType) {
 
-	this.isGameOver = ((index == 0 ? this.playerOneScore + 1 : this.playerTwoScore + 1) == 6 ? true : false);
-	if (this.isGameOver) this.gameEndConfirmationAlert();
+	this.checkForWinner(playerIndex);
 
 	this.scores = [...this.scores, {
 		pointDateTime: Date.now().toString()
-		, scorer: this.players[index]
-		, opponent: index == 1 ? this.players[index - 1] : this.players[index + 1]
+		, scorer: this.players[playerIndex]
+		, opponent: playerIndex == 1 ? this.players[playerIndex - 1] : this.players[playerIndex + 1]
 		, gamePointNumber: this.scores.length + 1
-		, scorerPointNumber: index == 0 ? this.playerOneScore + 1 : this.playerTwoScore + 1 
+		, scorerPointNumber: playerIndex == 0 ? this.playerOneScore + 1 : this.playerTwoScore + 1 
 		, pointType: pointType
 	}];
+  }
+
+  checkForWinner(playerIndex) {
+
+	  this.isGameOver = ((playerIndex == 0 ? this.playerOneScore + 1 : this.playerTwoScore + 1) == 6 ? true : false);
+
+	  if (this.isGameOver) {
+		  this.winner = this.players[playerIndex];
+		  this.loser = this.players[(playerIndex == 0 ? playerIndex + 1 : playerIndex - 1)]
+		  this.gameEndConfirmationAlert();
+	  }
   }
 
   doSwitch() {
@@ -152,10 +161,10 @@ export class GameScoringPage implements OnInit {
 
   scores: currentPointData[] = [];
   isGameOver = false;
+  forfeitted = false;
   players = ["Trevor", "Valeria"]; // To be filled in from the game setup page
   winner = null;
   loser = null;
-  forfeitted = false;
 
   get playerOneScore() {
 	  return this.scores.filter(x => x.scorer == this.players[0]).length;
