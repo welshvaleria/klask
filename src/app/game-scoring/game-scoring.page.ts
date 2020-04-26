@@ -26,7 +26,7 @@ export class GameScoringPage implements OnInit {
 		header: "Test header"
 		, subHeader: "Test subheader"
 		, message: "Test message"
-		, buttons: ['Yes', 'No']
+		, buttons: ['Confirm']
 	  }).then(alert => alert.present());
   }
 
@@ -62,6 +62,17 @@ export class GameScoringPage implements OnInit {
 	this.isGameOver = true;
 	this.winner = (playerNumber == 0 ? this.players[playerNumber + 1] : this.players[playerNumber - 1]);
 	this.alertTester();
+	// Build a 6 length array with the forfeitter as the loser and all pointTypes = "forfeit"
+	for (let i = 0; i < 6; i++) {
+		this.scores = [...this.scores, {
+			pointDateTime: Date.now().toString()
+			, scorer: this.winner
+			, opponent: this.players[playerNumber]
+			, gamePointNumber: i + 1
+			, scorerPointNumber: playerNumber == 0 ? this.playerOneScore + 1 : this.playerTwoScore + 1
+			, pointType: "forfeit"
+		}];
+	}
   }
 
   async presentActionSheet(scoreIndex) {
