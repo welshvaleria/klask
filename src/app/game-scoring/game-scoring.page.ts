@@ -73,6 +73,7 @@ export class GameScoringPage implements OnInit {
 			, pointType: "forfeit"
 		}];
 	}
+	console.log(this.scores);
   }
 
   async presentActionSheet(scoreIndex) {
@@ -124,8 +125,6 @@ export class GameScoringPage implements OnInit {
   addScoreAndUpdateGameData(index, pointType) {
 
 	this.isGameOver = ((index == 0 ? this.playerOneScore + 1 : this.playerTwoScore + 1) == 6 ? true : false);
-	let playerGetterForNow = document.querySelectorAll(".player-name");
-	let playerNames = Array.from(playerGetterForNow).map(x => x.innerHTML.trim());
 
 	this.scores = [...this.scores, {
 		pointDateTime: Date.now().toString()
