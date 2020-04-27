@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActionSheetController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { KlaskService } from '../klask.service';
 
 interface currentPointData {
 	pointDateTime: string;
@@ -19,7 +21,10 @@ interface currentPointData {
 
 export class GameScoringPage implements OnInit {
 
-  constructor(private actionSheetController : ActionSheetController, private alertController : AlertController) { }
+  constructor(private actionSheetController : ActionSheetController
+			  , private alertController : AlertController
+			  , private router : Router
+			  , private klaskSvc: KlaskService) { }
 
   async gameEndConfirmationAlert() {
 	  await this.alertController.create({
@@ -27,8 +32,38 @@ export class GameScoringPage implements OnInit {
 		, backdropDismiss: false
 		, subHeader: this.subHeaderDisplay()
 		, message: `Final Score: 6 - ${Math.min(this.playerOneScore, this.playerTwoScore)}`
-		, buttons: ['Confirm', 'Deny']
+		, buttons: [{
+			text: "Confirm"
+			, handler: () => {
+				console.log("Sending data...");
+				console.log(this.buildCompleteGameObject());
+
+				this.gameNumber = this.gameNumber + 1;
+				this.sendCompletedGameData();
+				this.router.navigate(["/win-loss-stats/-1"]);
+			}
+		}, {
+			text: "Deny"
+			, handler: () => {
+				console.log("Confirmation denied.");
+			}
+		}]
 	  }).then(alert => alert.present());
+  }
+
+  buildCompleteGameObject() {
+	  return {
+		  tourneyId: "-1"
+		  , tourneyName: "testing"
+		  , gameNumber: this.gameNumber
+		  , winner: this.winner
+		  , loser: this.loser
+		  , points: this.scores
+	  };
+  }
+
+  sendCompletedGameData() {
+	  this.klaskSvc.saveNewGameResult("-1", this.buildCompleteGameObject());
   }
 
   subHeaderDisplay() {
@@ -159,12 +194,17 @@ export class GameScoringPage implements OnInit {
 
   ngOnInit() {}
 
+  ionViewWillEnter() {
+	  this.scores = [];
+  }
+
   scores: currentPointData[] = [];
   isGameOver = false;
   forfeitted = false;
   players = ["Trevor", "Valeria"]; // To be filled in from the game setup page
   winner = null;
   loser = null;
+  gameNumber = 1;
 
   get playerOneScore() {
 	  return this.scores.filter(x => x.scorer == this.players[0]).length;
