@@ -15,10 +15,12 @@ export class MostKlaskStatsPage implements OnInit {
 
   results: any[];
   klaskArray: any[];
+  currentTourneyId = "";
 
   ngOnInit() {
 
-    console.log(this.activatedRoute.snapshot.paramMap.get("tourneyId"));
+    this.currentTourneyId = this.activatedRoute.snapshot.paramMap.get("tourneyId");
+    console.log(this.currentTourneyId);
 
     this.results = this.klaskSvc.getTournamentGameResults(
       this.activatedRoute.snapshot.paramMap.get("tourneyId")
