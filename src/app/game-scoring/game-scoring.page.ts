@@ -8,7 +8,7 @@ interface currentPointData {
 	gamePointNumber: number;
 	scorerPointNumber: number;
 	pointType: string;
-  opponent: string;
+  	opponent: string;
 }
 
 @Component({
