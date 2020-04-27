@@ -90,7 +90,7 @@ export class GameScoringPage implements OnInit {
 			}
 		}, {
 			text: "Cancel"
-			, icon: "close"
+			// , icon: "close"
 			, role: "cancel"
 		}]
 	  }).then(res => res.present());
@@ -120,25 +120,26 @@ export class GameScoringPage implements OnInit {
   async presentActionSheet(playerIndex) {
 	
     await this.actionSheetController.create({
-	  header: 'Type of Point Scored'
-	  , mode: "md"
-      , buttons: [{
-          text: "Klasked"
+	  //header: 'Type of Point Scored'
+	  mode: "md"
+      , buttons: [
+		{
+			text: "Goal"
+			, handler: () => {
+				  this.addScoreAndUpdateGameData(playerIndex, "score");
+			}
+		}, {
+          text: "Klask Point"
           , handler: () => {
 				this.addScoreAndUpdateGameData(playerIndex, "klask");
           }
       }, {
-          text: "Loss of Control"
+          text: "Loss of Control Point"
           , handler: () => {
 				this.addScoreAndUpdateGameData(playerIndex, "loss of control");
           }
       }, {
-          text: "Normal point"
-          , handler: () => {
-				this.addScoreAndUpdateGameData(playerIndex, "score");
-          }
-      }, {
-          text: "Biscuits"
+          text: "Biscuit Point"
           , handler: () => {
 				this.addScoreAndUpdateGameData(playerIndex, "biscuit");
           }
@@ -157,7 +158,7 @@ export class GameScoringPage implements OnInit {
 		  } 
 	  }, { 
           text: "Cancel"
-          , icon: "close"
+        //   , icon: "close"
           , role: "cancel"
       }]
     }).then(res => res.present());

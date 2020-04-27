@@ -19,24 +19,34 @@
 							class="ion-no-padding
 								   scoreButton"
 							expand="block" 
-							(click)="presentActionSheet(0)">
-					{{ playerOneScore }}
+							(click)="presentActionSheet(0)"
+							style="font-size: 5em;"
+						>
+					<div>
+						{{ playerOneScore }}
+						<h3 style="color: lightgray;">
+							TAP
+						</h3>
+					</div>
 				</ion-button>
 			</ion-card-content>
 		</ion-card>
 		<div class="middle-buttons">
-			<ion-button color="warning"
-						class="swap-button 
-							   ion-no-padding"
-						expand="block"
-						(click)="doSwitch()">
-				<ion-icon name="repeat-outline"></ion-icon>
+			<ion-button 
+				color="warning"
+				expand="block"
+				fill="outline"
+				(click)="doSwitch()"
+			>
+				&lt; &nbsp; SWAP &nbsp; &gt;
 			</ion-button>
-			<ion-button color="danger"
-						class="ion-no-padding"
-						expand="block"
-						(click)="forfeitActionSheet()">
-				FORFEIT
+			<ion-button 
+				color="danger"
+				class="ion-no-padding"
+				expand="block"
+				fill="outline"
+				(click)="forfeitActionSheet()">
+				FORFEIT : - (
 			</ion-button>
 		</div>
 		<ion-card id="playerTwoSlot">
@@ -46,11 +56,19 @@
 			<ion-card-content>
 				<ion-button id="player2"
 							color="dark"
+							fill="solid"
 							class="ion-no-padding
 								   scoreButton"
 							expand="block" 
-							(click)="presentActionSheet(1)">
-					{{ playerTwoScore }}
+							(click)="presentActionSheet(1)"
+							style="font-size: 5em;"
+							>
+							<div>
+								{{ playerTwoScore }}
+								<h3 style="color: lightgray;">
+									TAP
+								</h3>
+							</div>
 				</ion-button>
 			</ion-card-content>
 		</ion-card>
