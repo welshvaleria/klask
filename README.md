@@ -2,6 +2,11 @@
 ```
 Tracking burn-up charts and commentary in reverse chronological order...
 ```
+## 2020-04-24
+* Quick check in w/ Tom & Trevor
+* Keep on chugging on the game-scoring page
+
+<img src="misc/2020-04-24-klask-burn-up.PNG" width="300" />
 
 ## 2020-04-22
 * Decided on structure of the game-scoring page
