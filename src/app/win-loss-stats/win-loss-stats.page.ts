@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { KlaskService } from '../klask.service';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-win-loss-stats',
@@ -12,6 +12,7 @@ export class WinLossStatsPage implements OnInit {
   constructor(
     private klaskSvc: KlaskService
     , private activatedRoute: ActivatedRoute
+    , private router: Router
   ) { }
 
   results: any[];
@@ -158,5 +159,11 @@ export class WinLossStatsPage implements OnInit {
         ]
       }
     );
+
+    // Tried navigation to the same page, didn't work : - (
+    //this.router.navigate(['/win-loss-stats', this.currentTourneyId])
+
+    // Try to reinit ! ! !
+    this.ngOnInit();
   }
 }
