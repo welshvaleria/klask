@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { KlaskService } from '../klask.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-most-klask-stats',
@@ -9,13 +9,22 @@ import { Router } from '@angular/router';
 })
 export class MostKlaskStatsPage implements OnInit {
 
-  constructor(private klaskSvc: KlaskService, private router: Router) { }
+  constructor(
+    private klaskSvc: KlaskService
+    , private activatedRoute: ActivatedRoute) { }
 
   results: any[];
   klaskArray: any[];
+  currentTourneyId = "";
 
   ngOnInit() {
-    this.results = this.klaskSvc.getTournamentGameResults("1073ed04-45ef-444e-8263-8cc77b5251e4");
+
+    this.currentTourneyId = this.activatedRoute.snapshot.paramMap.get("tourneyId");
+    console.log(this.currentTourneyId);
+
+    this.results = this.klaskSvc.getTournamentGameResults(
+      this.activatedRoute.snapshot.paramMap.get("tourneyId")
+    );
 
     const timesKlasked = this.results
       // Pulling points array out of the original object

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { KlaskService } from '../klask.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-win-loss-stats',
@@ -8,14 +9,20 @@ import { KlaskService } from '../klask.service';
 })
 export class WinLossStatsPage implements OnInit {
 
-  constructor(private klaskSvc: KlaskService) { }
+  constructor(
+    private klaskSvc: KlaskService
+    , private activatedRoute: ActivatedRoute
+    , private router: Router
+  ) { }
 
   results: any[];
   simplifiedWinsLosses: any[];
   possibleForSorting: any[];
+  currentTourneyId = "";
 
   ngOnInit() {
-    this.results = this.klaskSvc.getTournamentGameResults("1073ed04-45ef-444e-8263-8cc77b5251e4");
+    this.currentTourneyId = this.activatedRoute.snapshot.paramMap.get("tourneyId");
+    this.results = this.klaskSvc.getTournamentGameResults(this.currentTourneyId);
 
     // Reducing data to get wins/losses per player
     const winsLosses = this.results.reduce(
@@ -56,5 +63,107 @@ export class WinLossStatsPage implements OnInit {
     }));
 
     this.possibleForSorting.sort((a, b) => b.sort - a.sort);
+  }
+
+  fauxPlayGame() {
+    this.klaskSvc.saveNewGameResult(
+      "-1"
+      , {
+        tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
+        , tourneyName: "mita"
+        , gameNumber: 1 
+        , winner: "Trevor"
+        , loser: "Tom" 
+        , points: [
+            { 
+              pointDateTime: "some datetime"
+              , scorer: "Tom"
+              , gamePointNumber: 1
+              , scorerPointNumber: 1
+              , pointType: "score"
+              , opponent: "Trevor" 
+            }
+          , { 
+              pointDateTime: "some datetime"
+              , scorer: "Trevor"
+              , gamePointNumber: 2
+              , scorerPointNumber: 1
+              , pointType:	"klask"
+              , opponent:	"Tom" 
+            }
+            , { 
+              pointDateTime: "some datetime"
+              , scorer: "Trevor"
+              , gamePointNumber: 3
+              , scorerPointNumber: 2
+              , pointType:	"score"
+              , opponent:	"Tom" 
+          }
+          , { 
+              pointDateTime: "some datetime"
+              , scorer: "Tom"
+              , gamePointNumber: 4
+              , scorerPointNumber: 2
+              , pointType: "biscuit"
+              , opponent: "Trevor" 
+          }
+          , { 
+              pointDateTime: "some datetime"
+              , scorer: "Tom"
+              , gamePointNumber: 5
+              , scorerPointNumber: 3
+              , pointType: "score"
+              , opponent:	"Trevor" 
+          }
+          , { 
+              pointDateTime: "some datetime"
+              , scorer: "Tom"
+              , gamePointNumber: 6
+              , scorerPointNumber: 4
+              , pointType: "score"
+              , opponent:	"Trevor" 
+          }
+          , { 
+              pointDateTime: "some datetime"
+              , scorer: "Trevor"
+              , gamePointNumber: 7
+              , scorerPointNumber: 3
+              , pointType:	"biscuit"
+              , opponent:	"Tom" 
+          }
+
+          , {
+              pointDateTime: "some datetime"
+              , scorer: "Trevor"
+              , gamePointNumber: 8
+              , scorerPointNumber: 4
+              , pointType:	"score"
+              , opponent:	"Tom" 
+          }
+          , { 
+              pointDateTime: "some datetime"
+              , scorer: "Trevor"
+              , gamePointNumber: 9
+              , scorerPointNumber: 5
+              , pointType:	"loss-control"
+              , opponent:	"Tom" 
+          }
+          , { 
+              pointDateTime: "some datetime"
+              , scorer: "Trevor"
+              , gamePointNumber: 10
+              , scorerPointNumber: 6
+              , pointType:	"score"
+              , opponent:	"Tom" 
+          }
+        ]
+      }
+    );
+
+    // Tried navigation to the same page, didn't work : - (
+    //this.router.navigate(['/win-loss-stats', this.currentTourneyId])
+
+    // Try to reinit ! ! !
+    this.ngOnInit();
   }
 }

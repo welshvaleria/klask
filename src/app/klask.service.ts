@@ -7,7 +7,23 @@ export class KlaskService {
 
   constructor() { }
 
+  trialTourneyGameResults = [];
+
+  saveNewGameResult(tourneyId, result) {
+    if (tourneyId == "-1") {
+      this.trialTourneyGameResults = [
+        ...this.trialTourneyGameResults
+        , result
+      ];
+    }
+  }
+
   getTournamentGameResults(tourneyId: string) {
+
+    if (tourneyId == '-1') {
+      return this.trialTourneyGameResults;
+    }
+
     return [
       {
           tourneyId: "1073ed04-45ef-444e-8263-8cc77b5251e4"
