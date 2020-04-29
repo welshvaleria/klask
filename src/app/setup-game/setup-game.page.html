@@ -44,6 +44,8 @@
             >
                 Start
             </ion-button>
+
+            <input id="typeahead-basic" type="text" class="form-control" [(ngModel)]="model" [ngbTypeahead]="search"/>
         </ion-card-content>
     </ion-card>
 </ion-content>

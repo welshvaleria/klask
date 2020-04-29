@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { SetupGamePageRoutingModule } from './setup-game-routing.module';
 
 import { SetupGamePage } from './setup-game.page';
+import { NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SetupGamePageRoutingModule
+    SetupGamePageRoutingModule,
+    NgbTypeaheadModule
   ],
   declarations: [SetupGamePage]
 })
