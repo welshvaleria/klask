@@ -40,7 +40,7 @@ export class GameScoringPage implements OnInit {
 
 				this.gameNumber = this.gameNumber + 1;
 				this.sendCompletedGameData();
-				this.router.navigate(["/win-loss-stats/-1"]);
+				this.router.navigate(["/win-loss-stats", "-1"]);
 			}
 		}, {
 			text: "Deny"
