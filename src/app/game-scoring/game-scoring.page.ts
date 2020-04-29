@@ -39,12 +39,8 @@ export class GameScoringPage implements OnInit {
 				console.log("Sending data...");
 				console.log(this.buildCompleteGameObject());
 
-				this.gameNumber = this.gameNumber + 1;
 				this.sendCompletedGameData();
-				// console.log(this.currentTourneyId);
-				// Not sure how to work around hard coding here because the game-setup is not done yet. Right now
-				//     this is the place where it gets it's initial setup.
-				this.router.navigate([`/win-loss-stats/-1`]);
+				this.router.navigate([`/win-loss-stats`, this.currentTourneyId]);
 			}
 		}, {
 			text: "Deny"
@@ -194,15 +190,16 @@ export class GameScoringPage implements OnInit {
     [this.players[0], this.players[1]] = [this.players[1], this.players[0]];
   }
 
+  currentTourneyId = "";
+
   ngOnInit() {
-	//   this.currentTourneyId = this.activatedRoute.snapshot.paramMap.get("tourneyId");
+	  this.currentTourneyId = this.activatedRoute.snapshot.paramMap.get("tourneyId");
   }
 
   ionViewWillEnter() {
 	  this.scores = [];
   }
 
-  currentTourneyId = "";
   scores: currentPointData[] = [];
   isGameOver = false;
   forfeitted = false;

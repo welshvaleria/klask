@@ -40,7 +40,7 @@
         color="success"
         expand="block"
         fill="solid"
-        (click)="navigate('/game-scoring/')"
+        [routerLink]="['/game-scoring', currentTourneyId]"
       >
         Play Game
       </ion-button>

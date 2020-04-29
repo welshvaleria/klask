@@ -68,8 +68,4 @@ export class WinLossStatsPage implements OnInit {
   ionViewWillEnter() {
     this.ngOnInit();
   }
-
-  navigate(path) {
-    this.router.navigate([path]);
-  }
 }

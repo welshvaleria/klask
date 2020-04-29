@@ -43,6 +43,8 @@ export class MostKlaskStatsPage implements OnInit {
       name: x[0]
       , klaskOffenses: x[1].klasks
     }));
-  }
 
+    this.klaskArray.sort((a, b) => b.klaskOffenses - a.klaskOffenses);
+
+  }
 }
