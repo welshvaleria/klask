@@ -2,6 +2,14 @@
 ```
 Tracking burn-up charts and commentary in reverse chronological order...
 ```
+## 2020-04-29
+* Found some navigation hard coding issues to fix within game-scoring
+* Completed confirm-game-results and submit-result-status from within game-scoring
+* Decided on two new stat pages to add: most-loc-points and most-biscuit-points
+* Clarification on ng autocomplete / found work to do with how to use it
+
+<img src="misc/2020-04-29-klask-burn-up.PNG" width="300" />
+
 ## 2020-04-27
 * Game scoring page nearly complete, just visuals left
 * Began talks on passing completed game data through pages within the app (win-loss-stats specifically)
