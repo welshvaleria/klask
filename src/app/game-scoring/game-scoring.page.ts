@@ -53,7 +53,7 @@ export class GameScoringPage implements OnInit {
 
   buildCompleteGameObject() {
 	  return {
-		  tourneyId: "-1"
+		  tourneyId: this.currentTourneyId
 		  , tourneyName: "testing"
 		  , gameNumber: this.gameNumber
 		  , winner: this.winner
