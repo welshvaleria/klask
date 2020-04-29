@@ -23,7 +23,6 @@ export class WinLossStatsPage implements OnInit {
   ngOnInit() {
     this.currentTourneyId = this.activatedRoute.snapshot.paramMap.get("tourneyId");
     this.results = this.klaskSvc.getTournamentGameResults(this.currentTourneyId);
-    console.log(this.results);
 
     // Reducing data to get wins/losses per player
     const winsLosses = this.results.reduce(

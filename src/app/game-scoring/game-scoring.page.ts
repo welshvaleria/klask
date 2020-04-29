@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActionSheetController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { KlaskService } from '../klask.service';
 
 interface currentPointData {
@@ -24,6 +24,7 @@ export class GameScoringPage implements OnInit {
   constructor(private actionSheetController : ActionSheetController
 			  , private alertController : AlertController
 			  , private router : Router
+			  , private activatedRoute : ActivatedRoute
 			  , private klaskSvc: KlaskService) { }
 
   async gameEndConfirmationAlert() {
@@ -40,7 +41,10 @@ export class GameScoringPage implements OnInit {
 
 				this.gameNumber = this.gameNumber + 1;
 				this.sendCompletedGameData();
-				this.router.navigate(["/win-loss-stats", "-1"]);
+				// console.log(this.currentTourneyId);
+				// Not sure how to work around hard coding here because the game-setup is not done yet. Right now
+				//     this is the place where it gets it's initial setup.
+				this.router.navigate([`/win-loss-stats/-1`]);
 			}
 		}, {
 			text: "Deny"
@@ -90,7 +94,6 @@ export class GameScoringPage implements OnInit {
 			}
 		}, {
 			text: "Cancel"
-			// , icon: "close"
 			, role: "cancel"
 		}]
 	  }).then(res => res.present());
@@ -120,7 +123,6 @@ export class GameScoringPage implements OnInit {
   async presentActionSheet(playerIndex) {
 	
     await this.actionSheetController.create({
-	  //header: 'Type of Point Scored'
 	  mode: "md"
       , buttons: [
 		{
@@ -158,7 +160,6 @@ export class GameScoringPage implements OnInit {
 		  } 
 	  }, { 
           text: "Cancel"
-        //   , icon: "close"
           , role: "cancel"
       }]
     }).then(res => res.present());
@@ -193,12 +194,15 @@ export class GameScoringPage implements OnInit {
     [this.players[0], this.players[1]] = [this.players[1], this.players[0]];
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+	//   this.currentTourneyId = this.activatedRoute.snapshot.paramMap.get("tourneyId");
+  }
 
   ionViewWillEnter() {
 	  this.scores = [];
   }
 
+  currentTourneyId = "";
   scores: currentPointData[] = [];
   isGameOver = false;
   forfeitted = false;
