@@ -27,31 +27,17 @@ export class MostKlaskStatsPage implements OnInit {
     this.results = this.klaskSvc.getTournamentGameResults(
       this.currentTourneyId
     );
-
-    // const timesKlasked = this.results
-    //   // Pulling points array out of the original object
-    //   .reduce((acc, x) => [...acc, ...x.points], [])
-    //   // Get just klask points
-    //   .filter(point => point.pointType === "klask")
-    //   // Get the person who klasked
-    //   .map(klasker => klasker.opponent)
-    //   .reduce((acc, x) => {
-    //     acc.set(x, {
-    //       klasks: acc.get(x) ? acc.get(x).klasks + 1 : 1
-    //     });
-    //     return acc;
-    // }, new Map());
-
-    // this.klaskArray = [...timesKlasked].map(x => ({
-    //   name: x[0]
-    //   , klaskOffenses: x[1].klasks
-    // }));
-
-    // this.klaskArray.sort((a, b) => b.klaskOffenses - a.klaskOffenses);
   }
 
   displayUserStat() {
-	  console.log(this.userStat);
+
+	  if (this.userStat == "pointsScored") {
+
+		  const test = this.results
+		  .reduce((acc, x) => [...acc, ...x.points], []);
+
+		  console.log(test);
+	  }
 
 	  const stats = this.results
       // Pulling points array out of the original object
@@ -69,10 +55,10 @@ export class MostKlaskStatsPage implements OnInit {
 
 	this.statArray = [...stats].map(x => ({
       name: x[0]
-      , offenses: x[1].points
+      , count: x[1].points
 	}));
 
-	this.statArray.sort((a, b) => b.offenses - a.offenses);
+	this.statArray.sort((a, b) => b.count - a.count);
 	
 	console.log(this.statArray);
   }
