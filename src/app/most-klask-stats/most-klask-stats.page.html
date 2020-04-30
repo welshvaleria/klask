@@ -27,15 +27,35 @@
   </ion-list>
 
 </ion-content>
-<ion-item>
-  <ion-label>Which stat would you like to view?</ion-label>
-  <ion-select [(ngModel)] = "userStat" interface = "popover" (ionChange)="displayUserStat()">
-    <ion-select-option value="klask">Most klasks</ion-select-option>
-    <ion-select-option value="loss-control">Most LOC points</ion-select-option>
-    <ion-select-option value="biscuit">Most Biscuits</ion-select-option>
+<!-- <ion-item>
+  <ion-label>The most...</ion-label>
+  <ion-select [(ngModel)] = "userStat" 
+			  interface = "popover" 
+			  (ionChange)="displayUserStat()">
+    <ion-select-option value="klask">Klasks</ion-select-option>
+    <ion-select-option value="loss-control">Loss of Controls</ion-select-option>
+    <ion-select-option value="biscuit">Biscuits</ion-select-option>
     <ion-select-option value="score">Points Scored</ion-select-option>
   </ion-select>
-</ion-item>
+</ion-item> -->
+
+<ion-segment value="test"
+			 [(ngModel)] = "userStat"
+			 (ionChange) = "displayUserStat()"
+			 color="white">
+	<ion-segment-button value="klask">
+		<ion-label>Klasks</ion-label>
+	</ion-segment-button>
+	<ion-segment-button value="loss-control">
+		<ion-label>Loss of Controls</ion-label>
+	</ion-segment-button>
+	<ion-segment-button value="biscuit">
+		<ion-label>Biscuits</ion-label>
+	</ion-segment-button>
+	<ion-segment-button value="score">
+		<ion-label>Points</ion-label>
+	</ion-segment-button>
+</ion-segment>
 
 <ion-footer>
   <ion-toolbar>

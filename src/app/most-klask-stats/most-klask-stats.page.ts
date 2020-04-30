@@ -31,14 +31,6 @@ export class MostKlaskStatsPage implements OnInit {
 
   displayUserStat() {
 
-	  if (this.userStat == "pointsScored") {
-
-		  const test = this.results
-		  .reduce((acc, x) => [...acc, ...x.points], []);
-
-		  console.log(test);
-	  }
-
 	  const stats = this.results
       // Pulling points array out of the original object
       .reduce((acc, x) => [...acc, ...x.points], [])
@@ -59,7 +51,5 @@ export class MostKlaskStatsPage implements OnInit {
 	}));
 
 	this.statArray.sort((a, b) => b.count - a.count);
-	
-	console.log(this.statArray);
   }
 }
