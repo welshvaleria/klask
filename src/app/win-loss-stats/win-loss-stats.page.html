@@ -1,5 +1,12 @@
 <ion-header>
   <ion-toolbar>
+    <ion-back-button 
+      color="primary" 
+      slot="start" 
+      [routerLink]="['/']"
+      routerDirection="back"
+    >
+    </ion-back-button>
     <ion-title>Free Trial Leaderboard</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -22,7 +29,7 @@
     <ion-buttons slot=primary>
       <ion-button 
         slot="end" 
-        [routerLink]="['/most-klask-stats']"
+        [routerLink]="['/most-klask-stats', currentTourneyId]"
         color="secondary"
         expand="outline"
         fill="solid"
@@ -33,6 +40,7 @@
         color="success"
         expand="block"
         fill="solid"
+        [routerLink]="['/game-scoring', currentTourneyId]"
       >
         Play Game
       </ion-button>

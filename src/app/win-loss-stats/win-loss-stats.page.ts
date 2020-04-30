@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { KlaskService } from '../klask.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-win-loss-stats',
@@ -8,14 +9,20 @@ import { KlaskService } from '../klask.service';
 })
 export class WinLossStatsPage implements OnInit {
 
-  constructor(private klaskSvc: KlaskService) { }
+  constructor(
+    private klaskSvc: KlaskService
+    , private activatedRoute: ActivatedRoute
+    , private router: Router
+  ) { }
 
   results: any[];
   simplifiedWinsLosses: any[];
   possibleForSorting: any[];
+  currentTourneyId = "";
 
   ngOnInit() {
-    this.results = this.klaskSvc.getTournamentGameResults("1073ed04-45ef-444e-8263-8cc77b5251e4");
+    this.currentTourneyId = this.activatedRoute.snapshot.paramMap.get("tourneyId");
+    this.results = this.klaskSvc.getTournamentGameResults(this.currentTourneyId);
 
     // Reducing data to get wins/losses per player
     const winsLosses = this.results.reduce(
@@ -56,5 +63,9 @@ export class WinLossStatsPage implements OnInit {
     }));
 
     this.possibleForSorting.sort((a, b) => b.sort - a.sort);
+  }
+
+  ionViewWillEnter() {
+    this.ngOnInit();
   }
 }
