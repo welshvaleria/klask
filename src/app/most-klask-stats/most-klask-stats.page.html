@@ -8,7 +8,7 @@
     >
     </ion-back-button>
     <ion-title>
-      Most Klasks
+      Tourney Stats
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -16,16 +16,25 @@
 <ion-content>
   <ion-list>
     <ion-item
-      *ngFor="let k of klaskArray">
+      *ngFor="let s of statArray">
       <ion-label>
-        {{ k.name }}
+        {{ s.name }}
       </ion-label>
       <small>
-        {{ k.klaskOffenses }}
+        {{ s.offenses }}
       </small>
     </ion-item>
   </ion-list>
+
 </ion-content>
+<ion-item>
+  <ion-label>Which stat would you like to view?</ion-label>
+  <ion-select [(ngModel)] = "userStat" interface = "popover" (ionChange)="displayUserStat()">
+    <ion-select-option value="klask">Most klasks</ion-select-option>
+    <ion-select-option value="loss-control">Most LOC points</ion-select-option>
+    <ion-select-option value="biscuit">Most Biscuits</ion-select-option>
+  </ion-select>
+</ion-item>
 
 <ion-footer>
   <ion-toolbar>
