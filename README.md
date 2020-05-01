@@ -2,6 +2,14 @@
 ```
 Tracking burn-up charts and commentary in reverse chronological order...
 ```
+## 2020-05-01
+* Decided on game setup design and got typeahead working
+* Decided on stats page functionality
+* Decided to use the klask service to share data between setup-game and game-scoring pages
+* Preparing to merge setup-game and game-scoring
+
+<img src="misc/2020-05-01-klask-burn-up.PNG" width="300" />
+
 ## 2020-04-29
 * Found some navigation hard coding issues to fix within game-scoring
 * Completed confirm-game-results and submit-result-status from within game-scoring
