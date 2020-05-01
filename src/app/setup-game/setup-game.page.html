@@ -24,28 +24,40 @@
                 placeholder="Enter game code"
             >
             </ion-input>
+            
+            <input  
+                type="text" 
+                class="form-control" 
+                [(ngModel)]="playerOne" 
+                [ngbTypeahead]="search"
+                outline="dark"/>
 
-            <ion-input
+            <br><br>
+            <input 
+                type="text" 
+                class="form-control" 
+                [(ngModel)]="playerTwo" 
+                [ngbTypeahead]="search"/>
+            
+            <!-- <ion-input
                 type ="text"
                 [(ngModel)]="playerOne"
                 placeholder="Enter player 1"
             >
-            </ion-input>
+            </ion-input> -->
 
-            <ion-input
+            <!-- <ion-input
                 type ="text"
                 [(ngModel)]="playerTwo"
                 placeholder="Enter player 2"
             >
-            </ion-input>
-
+            </ion-input> -->
+            <br><br>
             <ion-button
                 (click)="startGame()"
             >
                 Start
             </ion-button>
-
-            <input id="typeahead-basic" type="text" class="form-control" [(ngModel)]="model" [ngbTypeahead]="search"/>
         </ion-card-content>
     </ion-card>
 </ion-content>

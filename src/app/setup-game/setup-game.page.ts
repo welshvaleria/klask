@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { KlaskService } from '../klask.service';
 import {Observable} from 'rxjs';
 import {debounceTime, distinctUntilChanged, map} from 'rxjs/operators';
 
@@ -9,29 +10,29 @@ import {debounceTime, distinctUntilChanged, map} from 'rxjs/operators';
 })
 export class SetupGamePage implements OnInit {
 
-  constructor() { }
+  constructor(private klaskSvc: KlaskService) { }
 
   gameCode = "";
   playerOne = "";
   playerTwo = "";
 
-  ngOnInit() {
+  results: any[];
+  uniquePlayers: any[];
 
+  ngOnInit() {
     // Setup uniquePlayers by reducing the game results, blah, blah, blah...
+
+    this.results = this.klaskSvc.getTournamentGameResults("1073ed04-45ef-444e-8263-8cc77b5251e4");
+
+    this.uniquePlayers = this.results
+      .reduce((acc, x) => [...acc, x.winner, x.loser], [])
+      .filter((item1, item2, array) => array.indexOf(item1) === item2);
   }
 
 
   startGame() {
     alert(`Game ${this.gameCode} started.\nPlayer 1 (${this.playerOne}) and Player 2 (${this.playerTwo}) ready? set, go!`);
   }
-
-  uniquePlayers = [
-    "Tom"
-    , "Tommy"
-    , "Trevor"
-    , "Valeria"
-    , "Valpraso"
-  ];
 
   search = (text$: Observable<string>) =>
     text$.pipe(
