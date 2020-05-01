@@ -6,6 +6,9 @@ import { Injectable } from '@angular/core';
 export class KlaskService {
 
   constructor() { }
+  playerOne = "";
+  playerTwo = "";
+  gameNumber = 0;
 
   trialTourneyGameResults = [];
 
