@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { MostKlaskStatsPageRoutingModule } from './most-klask-stats-routing.module';
+import { TourneyStatsPageRoutingModule } from './tourney-stats-routing.module';
 
-import { MostKlaskStatsPage } from './most-klask-stats.page';
+import { TourneyStatsPage } from './tourney-stats.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    MostKlaskStatsPageRoutingModule
+    TourneyStatsPageRoutingModule
   ],
-  declarations: [MostKlaskStatsPage]
+  declarations: [TourneyStatsPage]
 })
-export class MostKlaskStatsPageModule {}
+export class TourneyStatsPageModule {}

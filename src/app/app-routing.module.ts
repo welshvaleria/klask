@@ -9,8 +9,8 @@ const routes: Routes = [
     loadChildren: () => import('./win-loss-stats/win-loss-stats.module').then( m => m.WinLossStatsPageModule)
   },
   {
-    path: 'most-klask-stats/:tourneyId',
-    loadChildren: () => import('./most-klask-stats/most-klask-stats.module').then( m => m.MostKlaskStatsPageModule)
+    path: 'tourney-stats/:tourneyId',
+    loadChildren: () => import('./tourney-stats/tourney-stats.module').then( m => m.TourneyStatsPageModule)
   },
   {
     path: 'join-tourney/:tourneyName',

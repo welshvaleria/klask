@@ -8,7 +8,7 @@
     >
     </ion-back-button>
     <ion-title>
-      Tourney Stats
+      Most {{ userStat }}
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -28,14 +28,14 @@
 
 </ion-content>
 <!-- <ion-item>
-  <ion-label>The most...</ion-label>
+  <ion-label>Most...</ion-label>
   <ion-select [(ngModel)] = "userStat" 
 			  interface = "popover" 
 			  (ionChange)="displayUserStat()">
     <ion-select-option value="klask">Klasks</ion-select-option>
-    <ion-select-option value="loss-control">Loss of Controls</ion-select-option>
+    <ion-select-option value="loss-control">Loss of Control</ion-select-option>
     <ion-select-option value="biscuit">Biscuits</ion-select-option>
-    <ion-select-option value="score">Points Scored</ion-select-option>
+    <ion-select-option value="score">Goals</ion-select-option>
   </ion-select>
 </ion-item> -->
 
@@ -47,13 +47,13 @@
 		<ion-label>Klasks</ion-label>
 	</ion-segment-button>
 	<ion-segment-button value="loss-control">
-		<ion-label>Loss of Control</ion-label>
+		<ion-label>LOC</ion-label>
 	</ion-segment-button>
 	<ion-segment-button value="biscuit">
 		<ion-label>Biscuits</ion-label>
 	</ion-segment-button>
 	<ion-segment-button value="score">
-		<ion-label>Points</ion-label>
+		<ion-label>Goals</ion-label>
 	</ion-segment-button>
 </ion-segment>
 

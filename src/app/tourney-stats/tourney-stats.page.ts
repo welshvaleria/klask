@@ -4,11 +4,11 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-most-klask-stats',
-  templateUrl: './most-klask-stats.page.html',
-  styleUrls: ['./most-klask-stats.page.scss'],
+  selector: 'app-tourney-stats',
+  templateUrl: './tourney-stats.page.html',
+  styleUrls: ['./tourney-stats.page.scss'],
 })
-export class MostKlaskStatsPage implements OnInit {
+export class TourneyStatsPage implements OnInit {
 
   constructor(
     private klaskSvc: KlaskService
