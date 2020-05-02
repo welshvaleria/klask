@@ -20,23 +20,26 @@
         <ion-card-content>
             <ion-input
                 type ="text"
+                class="input"
                 [(ngModel)]="gameCode"
                 placeholder="Enter game code"
+                background="white"
             >
             </ion-input>
             
             <input  
                 type="text" 
-                class="form-control" 
+                class="input"
                 [(ngModel)]="playerOne" 
+                placeholder="Enter player 1"
                 [ngbTypeahead]="search"
-                outline="dark"/>
+            />
 
-            <br><br>
             <input 
                 type="text" 
-                class="form-control" 
+                class="input"
                 [(ngModel)]="playerTwo" 
+                placeholder="Enter player 2"
                 [ngbTypeahead]="search"/>
             
             <!-- <ion-input
