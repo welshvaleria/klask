@@ -4,11 +4,10 @@
       color="primary" 
       slot="start" 
       [routerLink]="['/win-loss-stats', currentTourneyId]"
-      routerDirection="back"
-    >
+      routerDirection="back">
     </ion-back-button>
     <ion-title>
-      Most {{ userStat }}
+      Most {{ statHeaders[userStat] }}
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -27,27 +26,12 @@
   </ion-list>
 
 </ion-content>
-<!-- <ion-item>
-  <ion-label>Most...</ion-label>
-  <ion-select [(ngModel)] = "userStat" 
-			  interface = "popover" 
-			  (ionChange)="displayUserStat()">
-    <ion-select-option value="klask">Klasks</ion-select-option>
-    <ion-select-option value="loss-control">Loss of Control</ion-select-option>
-    <ion-select-option value="biscuit">Biscuits</ion-select-option>
-    <ion-select-option value="score">Goals</ion-select-option>
-  </ion-select>
-</ion-item> -->
 
-<ion-segment value="test"
-			 [(ngModel)] = "userStat"
+<ion-segment [(ngModel)] = "userStat"
 			 (ionChange) = "displayUserStat()"
-			 color="white">
+			 color="secondary">
 	<ion-segment-button value="klask">
 		<ion-label>Klasks</ion-label>
-	</ion-segment-button>
-	<ion-segment-button value="loss-control">
-		<ion-label>LOC</ion-label>
 	</ion-segment-button>
 	<ion-segment-button value="biscuit">
 		<ion-label>Biscuits</ion-label>
@@ -55,20 +39,10 @@
 	<ion-segment-button value="score">
 		<ion-label>Goals</ion-label>
 	</ion-segment-button>
+	<ion-segment-button value="loss-control">
+		<ion-label>LOC</ion-label>
+	</ion-segment-button>
 </ion-segment>
 
 <ion-footer>
-  <ion-toolbar>
-    <ion-buttons slot=primary>
-      <ion-button 
-        slot="end" 
-        [routerLink]="['/win-loss-stats', currentTourneyId]"
-        color="secondary"
-        expand="outline"
-        fill="solid"
-      >
-        Back
-      </ion-button>
-  </ion-buttons>
-  </ion-toolbar>
 </ion-footer>

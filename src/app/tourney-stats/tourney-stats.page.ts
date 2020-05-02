@@ -12,13 +12,18 @@ export class TourneyStatsPage implements OnInit {
 
   constructor(
     private klaskSvc: KlaskService
-    , private activatedRoute: ActivatedRoute
-    , private navCtrl : NavController) { }
+    , private activatedRoute: ActivatedRoute) { }
 
   results: any[];
   statArray: any[];
   currentTourneyId = "";
-  userStat: any;
+  userStat =  "";
+  statHeaders = {
+	  "klask"          : "Klasks"
+	  , "score"        : "Goals Scored"
+	  , "biscuit"      : "Biscuits"
+	  , "loss-control" : "Loss of Controls"
+  }
 
   ngOnInit() {
 
@@ -27,9 +32,12 @@ export class TourneyStatsPage implements OnInit {
     this.results = this.klaskSvc.getTournamentGameResults(
       this.currentTourneyId
     );
+
+    this.userStat = "klask"
+    this.displayUserStat(this.userStat);
   }
 
-  displayUserStat() {
+  displayUserStat(userStat?: string) {
 
 	  const stats = this.results
       // Pulling points array out of the original object
