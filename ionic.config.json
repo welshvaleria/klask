@@ -1,5 +1,7 @@
 {
   "name": "klask",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

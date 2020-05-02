@@ -1,0 +1,76 @@
+<ion-header>
+	<ion-toolbar>
+		<ng-container [ngSwitch] = "true">
+			<ion-title *ngSwitchCase = "!isGameOver" style="text-align: center;">Game 1</ion-title>
+			<ion-title *ngSwitchCase = "isGameOver" style="text-align: center;">G A M E  O V E R !</ion-title>
+		</ng-container>
+  	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<div class="flex-container">
+		<ion-card id="playerOneSlot">
+			<ion-card-header class="ion-text-center player-name">
+				{{ this.players[0] }}
+			</ion-card-header>
+			<ion-card-content>
+				<ion-button id="player1"
+							color="dark"
+							class="ion-no-padding
+								   scoreButton"
+							expand="block" 
+							(click)="presentActionSheet(0)"
+							style="font-size: 5em;"
+						>
+					<div>
+						{{ playerOneScore }}
+						<h3 style="color: lightgray;">
+							TAP
+						</h3>
+					</div>
+				</ion-button>
+			</ion-card-content>
+		</ion-card>
+		<div class="middle-buttons">
+			<ion-button 
+				color="warning"
+				expand="block"
+				fill="outline"
+				(click)="doSwitch()"
+			>
+				&lt; &nbsp; SWAP SIDES &nbsp; &gt;
+			</ion-button>
+			<ion-button 
+				color="danger"
+				class="ion-no-padding"
+				expand="block"
+				fill="outline"
+				(click)="forfeitActionSheet()">
+				PLAYER FORFEIT : - (
+			</ion-button>
+		</div>
+		<ion-card id="playerTwoSlot">
+			<ion-card-header class="ion-text-center player-name">
+				{{ this.players[1] }}
+			</ion-card-header>
+			<ion-card-content>
+				<ion-button id="player2"
+							color="dark"
+							fill="solid"
+							class="ion-no-padding
+								   scoreButton"
+							expand="block" 
+							(click)="presentActionSheet(1)"
+							style="font-size: 5em;"
+							>
+							<div>
+								{{ playerTwoScore }}
+								<h3 style="color: lightgray;">
+									TAP
+								</h3>
+							</div>
+				</ion-button>
+			</ion-card-content>
+		</ion-card>
+	</div>
+</ion-content>
