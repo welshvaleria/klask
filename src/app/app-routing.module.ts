@@ -17,7 +17,7 @@ const routes: Routes = [
     loadChildren: () => import('./join-tourney/join-tourney.module').then( m => m.JoinTourneyPageModule)
   },
   {
-    path: 'setup-game',
+    path: 'setup-game/:tourneyId',
     loadChildren: () => import('./setup-game/setup-game.module').then( m => m.SetupGamePageModule)
   },
   {

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { KlaskService } from '../klask.service';
+import { ActivatedRoute } from '@angular/router';
 import {Observable} from 'rxjs';
 import {debounceTime, distinctUntilChanged, map} from 'rxjs/operators';
 
@@ -10,19 +11,21 @@ import {debounceTime, distinctUntilChanged, map} from 'rxjs/operators';
 })
 export class SetupGamePage implements OnInit {
 
-  constructor(private klaskSvc: KlaskService) { }
+  constructor(private klaskSvc: KlaskService, private activatedRoute: ActivatedRoute) { }
 
-  gameCode = "";
+  // gameNumber = "";
   playerOne = "";
   playerTwo = "";
+
+  currentTourneyId = "";
 
   results: any[];
   uniquePlayers: any[];
 
   ngOnInit() {
     // Setup uniquePlayers by reducing the game results, blah, blah, blah...
-
-    this.results = this.klaskSvc.getTournamentGameResults("1073ed04-45ef-444e-8263-8cc77b5251e4");
+    this.currentTourneyId = this.activatedRoute.snapshot.paramMap.get("tourneyId");
+    this.results = this.klaskSvc.getTournamentGameResults(this.currentTourneyId);
 
     this.uniquePlayers = this.results
       .reduce((acc, x) => [...acc, x.winner, x.loser], [])
@@ -30,8 +33,18 @@ export class SetupGamePage implements OnInit {
   }
 
 
-  startGame() {
-    alert(`Game ${this.gameCode} started.\nPlayer 1 (${this.playerOne}) and Player 2 (${this.playerTwo}) ready? set, go!`);
+  startGame(playerOne, playerTwo) {
+    this.klaskSvc.saveGameNumber(1);
+    this.klaskSvc.savePlayerOne(playerOne);
+    this.klaskSvc.savePlayerTwo(this.playerTwo);
+    this.display();
+  }
+
+  display() {
+    console.log(this.klaskSvc.getGameNumber());
+    let result = this.klaskSvc.getPlayerOne();
+    console.log(result);
+    console.log(this.klaskSvc.getPlayerTwo());
   }
 
   search = (text$: Observable<string>) =>

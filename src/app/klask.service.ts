@@ -10,6 +10,31 @@ export class KlaskService {
   playerTwo = "";
   gameNumber = 0;
 
+  savePlayerOne(playerOne) {
+    this.playerOne = playerOne;
+  }
+
+  getPlayerOne() {
+    return this.playerOne;
+  }
+
+  savePlayerTwo(playerTwo) {
+    this.playerTwo = playerTwo;
+  }
+
+  getPlayerTwo() {
+    return this.playerTwo;
+  }
+
+  saveGameNumber(gameNumber) {
+    this.gameNumber = gameNumber;
+  }
+
+  getGameNumber() {
+    return this.gameNumber;
+  }
+
+
   trialTourneyGameResults = [];
 
   saveNewGameResult(tourneyId, result) {

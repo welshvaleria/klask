@@ -18,7 +18,7 @@
 <ion-content>
     <ion-card>
         <ion-card-content>
-            <ion-input
+            <!-- <ion-input
                 type ="text"
                 class="input"
                 [(ngModel)]="gameCode"
@@ -26,7 +26,7 @@
                 background="white"
             >
             </ion-input>
-            
+             -->
             <input  
                 type="text" 
                 class="input"
@@ -41,23 +41,10 @@
                 [(ngModel)]="playerTwo" 
                 placeholder="Enter player 2"
                 [ngbTypeahead]="search"/>
-            
-            <!-- <ion-input
-                type ="text"
-                [(ngModel)]="playerOne"
-                placeholder="Enter player 1"
-            >
-            </ion-input> -->
-
-            <!-- <ion-input
-                type ="text"
-                [(ngModel)]="playerTwo"
-                placeholder="Enter player 2"
-            >
-            </ion-input> -->
-            <br><br>
+            <br>
             <ion-button
-                (click)="startGame()"
+                (click)="startGame(playerOne, playerTwo)"
+                [routerLink]="['/game-scoring', currentTourneyId]"
             >
                 Start
             </ion-button>
