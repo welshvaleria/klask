@@ -20,6 +20,10 @@ const routes: Routes = [
     path: 'game-scoring/:tourneyId',
     loadChildren: () => import('./game-scoring/game-scoring.module').then( m => m.GameScoringPageModule)
   },
+  {
+    path: 'setup-game/:tourneyId',
+    loadChildren: () => import('./setup-game/setup-game.module').then( m => m.SetupGamePageModule)
+  }
 
 
 ];

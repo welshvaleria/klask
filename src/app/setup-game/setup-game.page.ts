@@ -36,15 +36,7 @@ export class SetupGamePage implements OnInit {
   startGame(playerOne, playerTwo) {
     this.klaskSvc.saveGameNumber(1);
     this.klaskSvc.savePlayerOne(playerOne);
-    this.klaskSvc.savePlayerTwo(this.playerTwo);
-    this.display();
-  }
-
-  display() {
-    console.log(this.klaskSvc.getGameNumber());
-    let result = this.klaskSvc.getPlayerOne();
-    console.log(result);
-    console.log(this.klaskSvc.getPlayerTwo());
+    this.klaskSvc.savePlayerTwo(playerTwo);
   }
 
   search = (text$: Observable<string>) =>

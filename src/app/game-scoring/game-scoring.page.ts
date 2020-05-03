@@ -203,7 +203,7 @@ export class GameScoringPage implements OnInit {
   scores: currentPointData[] = [];
   isGameOver = false;
   forfeitted = false;
-  players = ["Trevor", "Valeria"]; // To be filled in from the game setup page
+  players = [this.klaskSvc.getPlayerOne(), this.klaskSvc.getPlayerTwo()]; // To be filled in from the game setup page
   winner = null;
   loser = null;
   gameNumber = 1;

@@ -8,7 +8,7 @@ export class KlaskService {
   constructor() { }
   playerOne = "";
   playerTwo = "";
-  gameNumber = 0;
+  gameNumber = 1;
 
   savePlayerOne(playerOne) {
     this.playerOne = playerOne;
