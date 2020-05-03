@@ -24,25 +24,25 @@
       </small>
     </ion-item>
   </ion-list>
+  <ion-segment [(ngModel)] = "userStat"
+         (ionChange) = "displayUserStat()"
+         color="primary">
+    <ion-segment-button value="klask">
+      <ion-label>Klasks</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="biscuit">
+      <ion-label>Biscuits</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="score">
+      <ion-label>Goals</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="loss-control">
+      <ion-label>LOC</ion-label>
+    </ion-segment-button>
+  </ion-segment>
 
 </ion-content>
 
-<ion-segment [(ngModel)] = "userStat"
-			 (ionChange) = "displayUserStat()"
-			 color="secondary">
-	<ion-segment-button value="klask">
-		<ion-label>Klasks</ion-label>
-	</ion-segment-button>
-	<ion-segment-button value="biscuit">
-		<ion-label>Biscuits</ion-label>
-	</ion-segment-button>
-	<ion-segment-button value="score">
-		<ion-label>Goals</ion-label>
-	</ion-segment-button>
-	<ion-segment-button value="loss-control">
-		<ion-label>LOC</ion-label>
-	</ion-segment-button>
-</ion-segment>
 
 <ion-footer>
 </ion-footer>
