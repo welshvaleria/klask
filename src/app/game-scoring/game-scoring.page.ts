@@ -134,7 +134,7 @@ export class GameScoringPage implements OnInit {
       }, {
           text: "Loss of Control Point"
           , handler: () => {
-				this.addScoreAndUpdateGameData(playerIndex, "loss of control");
+				this.addScoreAndUpdateGameData(playerIndex, "loss-control");
           }
       }, {
           text: "Biscuit Point"
