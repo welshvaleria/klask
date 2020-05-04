@@ -39,10 +39,6 @@ export class TourneyStatsPage implements OnInit {
 
   displayUserStat(userStat?: string) {
 
-    if (userStat == "score") {
-
-    }
-
 	  const stats = this.results
       // Pulling points array out of the original object
       .reduce((acc, x) => [...acc, ...x.points], [])
