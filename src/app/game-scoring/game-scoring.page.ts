@@ -64,6 +64,7 @@ export class GameScoringPage implements OnInit {
 
   sendCompletedGameData() {
 	  this.klaskSvc.saveNewGameResult("-1", this.buildCompleteGameObject());
+	  this.klaskSvc.saveGameNumber(this.gameNumber + 1);
   }
 
   subHeaderDisplay() {
@@ -203,10 +204,10 @@ export class GameScoringPage implements OnInit {
   scores: currentPointData[] = [];
   isGameOver = false;
   forfeitted = false;
-  players = [this.klaskSvc.getPlayerOne(), this.klaskSvc.getPlayerTwo()]; // To be filled in from the game setup page
+  players = [this.klaskSvc.getPlayerOne(), this.klaskSvc.getPlayerTwo()];
   winner = null;
   loser = null;
-  gameNumber = 1;
+  gameNumber = this.klaskSvc.getGameNumber();
 
   get playerOneScore() {
 	  return this.scores.filter(x => x.scorer == this.players[0]).length;
