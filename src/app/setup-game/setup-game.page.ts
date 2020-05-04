@@ -34,7 +34,6 @@ export class SetupGamePage implements OnInit {
 
 
   startGame(playerOne, playerTwo) {
-    this.klaskSvc.saveGameNumber(1);
     this.klaskSvc.savePlayerOne(playerOne);
     this.klaskSvc.savePlayerTwo(playerTwo);
   }
