@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { KlaskService } from '../klask.service';
 import { ActivatedRoute } from '@angular/router';
-import {Observable} from 'rxjs';
-import {debounceTime, distinctUntilChanged, map} from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-setup-game',
@@ -34,7 +34,6 @@ export class SetupGamePage implements OnInit {
 
 
   startGame(playerOne, playerTwo) {
-    this.klaskSvc.saveGameNumber(1);
     this.klaskSvc.savePlayerOne(playerOne);
     this.klaskSvc.savePlayerTwo(playerTwo);
   }

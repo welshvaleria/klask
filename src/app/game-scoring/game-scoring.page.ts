@@ -134,7 +134,7 @@ export class GameScoringPage implements OnInit {
       }, {
           text: "Loss of Control Point"
           , handler: () => {
-				this.addScoreAndUpdateGameData(playerIndex, "loss of control");
+				this.addScoreAndUpdateGameData(playerIndex, "loss-control");
           }
       }, {
           text: "Biscuit Point"
@@ -194,6 +194,17 @@ export class GameScoringPage implements OnInit {
 
   ngOnInit() {
 	  this.currentTourneyId = this.activatedRoute.snapshot.paramMap.get("tourneyId");
+	  this.currentTourneyResults = this.klaskSvc.getTournamentGameResults(this.currentTourneyId);
+	  this.setGameNumber();
+  }
+
+  setGameNumber() {
+	  if (this.currentTourneyResults.length == 0) {
+		this.gameNumber = 1;
+	  } else {
+		let [lastGamePlayed] = this.currentTourneyResults.slice(-1);
+		this.gameNumber = lastGamePlayed["gameNumber"] + 1;
+	  }
   }
 
   ionViewWillEnter() {
@@ -202,11 +213,12 @@ export class GameScoringPage implements OnInit {
 
   scores: currentPointData[] = [];
   isGameOver = false;
+  currentTourneyResults: any;
   forfeitted = false;
-  players = [this.klaskSvc.getPlayerOne(), this.klaskSvc.getPlayerTwo()]; // To be filled in from the game setup page
+  players = [this.klaskSvc.getPlayerOne(), this.klaskSvc.getPlayerTwo()];
   winner = null;
   loser = null;
-  gameNumber = 1;
+  gameNumber: number;
 
   get playerOneScore() {
 	  return this.scores.filter(x => x.scorer == this.players[0]).length;

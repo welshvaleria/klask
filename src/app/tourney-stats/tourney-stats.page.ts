@@ -45,7 +45,8 @@ export class TourneyStatsPage implements OnInit {
       // Get just user requested points
       .filter(point => point.pointType === this.userStat)
       // Get the opponent - they are the ones who committed what the user is requesting
-      .map(opp => opp.opponent)
+      // UNLESS it is for goals scored, then you need to get the scorer.
+      .map(opp => (this.userStat == "score" ? opp.scorer : opp.opponent))
       .reduce((acc, x) => {
         acc.set(x, {
           points: acc.get(x) ? acc.get(x).points + 1 : 1

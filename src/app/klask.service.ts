@@ -8,7 +8,6 @@ export class KlaskService {
   constructor() { }
   playerOne = "";
   playerTwo = "";
-  gameNumber = 1;
 
   savePlayerOne(playerOne) {
     this.playerOne = playerOne;
@@ -25,15 +24,6 @@ export class KlaskService {
   getPlayerTwo() {
     return this.playerTwo;
   }
-
-  saveGameNumber(gameNumber) {
-    this.gameNumber = gameNumber;
-  }
-
-  getGameNumber() {
-    return this.gameNumber;
-  }
-
 
   trialTourneyGameResults = [];
 

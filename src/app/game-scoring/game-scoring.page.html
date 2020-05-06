@@ -1,7 +1,7 @@
 <ion-header>
 	<ion-toolbar>
 		<ng-container [ngSwitch] = "true">
-			<ion-title *ngSwitchCase = "!isGameOver" style="text-align: center;">Game 1</ion-title>
+			<ion-title *ngSwitchCase = "!isGameOver" style="text-align: center;">Game {{ gameNumber }}</ion-title>
 			<ion-title *ngSwitchCase = "isGameOver" style="text-align: center;">G A M E  O V E R !</ion-title>
 		</ng-container>
   	</ion-toolbar>
