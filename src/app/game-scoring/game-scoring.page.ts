@@ -187,7 +187,7 @@ export class GameScoringPage implements OnInit {
   }
 
   doSwitch() {
-    [this.players[0], this.players[1]] = [this.players[1], this.players[0]];
+	[this.players[0], this.players[1]] = [this.players[1], this.players[0]];
   }
 
   currentTourneyId = "";

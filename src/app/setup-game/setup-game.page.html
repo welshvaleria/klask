@@ -3,12 +3,8 @@
         <ion-title>
             Game Setup
         </ion-title>
-        <ion-buttons
-            slot="start"
-        >
-            <ion-button
-                [routerLink]="['/']"
-            >
+        <ion-buttons slot="start">
+            <ion-button [routerLink]="['/']">
                 <ion-icon name="arrow-back"></ion-icon>
             </ion-button>
         </ion-buttons>
@@ -18,22 +14,12 @@
 <ion-content>
     <ion-card>
         <ion-card-content>
-            <!-- <ion-input
-                type ="text"
-                class="input"
-                [(ngModel)]="gameCode"
-                placeholder="Enter game code"
-                background="white"
-            >
-            </ion-input>
-             -->
             <input  
                 type="text" 
                 class="input"
                 [(ngModel)]="playerOne" 
                 placeholder="Enter player 1"
-                [ngbTypeahead]="search"
-            />
+                [ngbTypeahead]="search"/>
 
             <input 
                 type="text" 
@@ -45,7 +31,8 @@
             <ion-button
                 (click)="startGame(playerOne, playerTwo)"
                 [routerLink]="['/game-scoring', currentTourneyId]"
-            >
+                fill="outline"
+                color="success">
                 Start
             </ion-button>
         </ion-card-content>

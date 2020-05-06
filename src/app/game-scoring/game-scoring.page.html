@@ -10,9 +10,9 @@
 <ion-content>
 	<div class="flex-container">
 		<ion-card id="playerOneSlot">
-			<ion-card-header class="ion-text-center player-name">
-				{{ this.players[0] }}
-			</ion-card-header>
+				<ion-card-header class="ion-text-center player-name">
+					{{ this.players[0] }}
+				</ion-card-header>
 			<ion-card-content>
 				<ion-button id="player1"
 							color="dark"
@@ -25,7 +25,7 @@
 					<div>
 						{{ playerOneScore }}
 						<h3 style="color: lightgray;">
-							TAP
+							T A P
 						</h3>
 					</div>
 				</ion-button>
@@ -38,7 +38,7 @@
 				fill="outline"
 				(click)="doSwitch()"
 			>
-				&lt; &nbsp; SWAP SIDES &nbsp; &gt;
+			<ion-icon name="chevron-back-outline"></ion-icon> &nbsp; SWAP SIDES &nbsp; <ion-icon name="chevron-forward-outline"></ion-icon>
 			</ion-button>
 			<ion-button 
 				color="danger"
@@ -46,7 +46,7 @@
 				expand="block"
 				fill="outline"
 				(click)="forfeitActionSheet()">
-				PLAYER FORFEIT : - (
+				FORFEIT<ion-icon name="sad-outline"></ion-icon>
 			</ion-button>
 		</div>
 		<ion-card id="playerTwoSlot">
@@ -66,7 +66,7 @@
 							<div>
 								{{ playerTwoScore }}
 								<h3 style="color: lightgray;">
-									TAP
+									T A P
 								</h3>
 							</div>
 				</ion-button>

@@ -9,6 +9,12 @@
 
 ion-card {
     flex-grow: 2;
+    flex-basis: 0;
+}
+
+ion-card-header {
+    overflow: auto;
+    white-space: nowrap;
 }
 
 .player-name {
@@ -19,7 +25,7 @@ ion-card {
 .middle-buttons {
     flex-grow: 1;
     align-self: center;
-    height: 6em;
+    flex-basis: 0;
 }
 
 .scoreButton {

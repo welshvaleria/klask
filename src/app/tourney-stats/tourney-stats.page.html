@@ -24,9 +24,12 @@
       </small>
     </ion-item>
   </ion-list>
+</ion-content>
+
+<ion-footer>
   <ion-segment [(ngModel)] = "userStat"
          (ionChange) = "displayUserStat()"
-         color="primary">
+         color="secondary">
     <ion-segment-button value="klask">
       <ion-label>Klasks</ion-label>
     </ion-segment-button>
@@ -40,9 +43,4 @@
       <ion-label>LOC</ion-label>
     </ion-segment-button>
   </ion-segment>
-
-</ion-content>
-
-
-<ion-footer>
 </ion-footer>
