@@ -3,6 +3,13 @@
 Tracking burn-up charts and commentary in reverse chronological order...
 ```
 ## 2020-05-01
+* Just about "done"!
+* Discussed some more CSS finding
+* Fork into our own personal GitHub accounts!
+
+<img src="misc/2020-05-08-klask-burn-up.PNG" width="300" />
+
+## 2020-05-01
 * Decided on game setup design and got typeahead working
 * Decided on stats page functionality
 * Decided to use the klask service to share data between setup-game and game-scoring pages
