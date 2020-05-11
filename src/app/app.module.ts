@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NgbTypeaheadModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-// import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx'
+import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx'
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,7 +25,7 @@ import { NgbTypeaheadModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
   providers: [
     StatusBar,
     SplashScreen,
-    // ScreenOrientation,
+    ScreenOrientation,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

@@ -3,6 +3,7 @@ import { ActionSheetController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 import { Router, ActivatedRoute } from '@angular/router';
 import { KlaskService } from '../klask.service';
+import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
 interface currentPointData {
 	pointDateTime: string;
@@ -21,11 +22,12 @@ interface currentPointData {
 
 export class GameScoringPage implements OnInit {
 
-  constructor(private actionSheetController : ActionSheetController
-			  , private alertController : AlertController
-			  , private router : Router
-			  , private activatedRoute : ActivatedRoute
-			  , private klaskSvc: KlaskService) { }
+  constructor(private actionSheetController: ActionSheetController
+			  , private alertController: AlertController
+			  , private router: Router
+			  , private activatedRoute: ActivatedRoute
+			  , private klaskSvc: KlaskService
+			  , private screenOrientation: ScreenOrientation) { }
 
   async gameEndConfirmationAlert() {
 	  await this.alertController.create({
@@ -193,6 +195,7 @@ export class GameScoringPage implements OnInit {
   currentTourneyId = "";
 
   ngOnInit() {
+	  
 	  this.currentTourneyId = this.activatedRoute.snapshot.paramMap.get("tourneyId");
 	  this.currentTourneyResults = this.klaskSvc.getTournamentGameResults(this.currentTourneyId);
 	  this.setGameNumber();
@@ -208,6 +211,7 @@ export class GameScoringPage implements OnInit {
   }
 
   ionViewWillEnter() {
+	  this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
 	  this.scores = [];
   }
 
