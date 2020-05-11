@@ -10,10 +10,18 @@
     
 }
 
-.input::placeholder {
-    color: #565454;
-}
-
 .input:focus {
     outline: none;
+}
+
+ion-card-header {
+    text-align: center;
+}
+
+ion-card-content {
+    text-align: center;
+}
+
+ion-button {
+    margin-top: 10px;
 }

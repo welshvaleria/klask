@@ -3,31 +3,34 @@
         <ion-title>
             Game Setup
         </ion-title>
-        <ion-buttons slot="start">
-            <ion-button [routerLink]="['/']">
-                <ion-icon name="arrow-back"></ion-icon>
-            </ion-button>
-        </ion-buttons>
+        <ion-back-button
+            color="primary"
+            slot="start"
+            [routerLink]="['/win-loss-stats', currentTourneyId]"
+            routerDirection="back">
+        </ion-back-button>
     </ion-toolbar>
 </ion-header>
 
 <ion-content>
     <ion-card>
+        <ion-card-header>
+            <ion-card-title>Player Names</ion-card-title>
+        </ion-card-header>
         <ion-card-content>
             <input  
                 type="text" 
                 class="input"
                 [(ngModel)]="playerOne" 
-                placeholder="Enter player 1"
+                placeholder="Player 1"
                 [ngbTypeahead]="search"/>
 
             <input 
                 type="text" 
                 class="input"
                 [(ngModel)]="playerTwo" 
-                placeholder="Enter player 2"
+                placeholder="Player 2"
                 [ngbTypeahead]="search"/>
-            <br>
             <ion-button
                 (click)="startGame(playerOne, playerTwo)"
                 [routerLink]="['/game-scoring', currentTourneyId]"
