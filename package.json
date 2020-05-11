@@ -27,7 +27,6 @@
     "@ng-bootstrap/ng-bootstrap": "^5.3.1",
     "@ng-bootstrap/schematics": "^2.0.0-alpha.1",
     "bootstrap": "^4.0.0",
-    "cordova-plugin-screen-orientation": "^3.0.2",
     "core-js": "^2.5.4",
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",
@@ -58,8 +57,6 @@
   },
   "description": "An Ionic project",
   "cordova": {
-    "plugins": {
-      "cordova-plugin-screen-orientation": {}
-    }
+    "plugins": {}
   }
 }
