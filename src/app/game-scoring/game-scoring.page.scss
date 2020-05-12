@@ -1,15 +1,5 @@
-.flex-container {
-    margin: 0 auto;
-    display: flex;
-    flex-flow: row nowrap;
-    align-content: center;
-    justify-content: center;
-    width: 90%;
-}
-
-ion-card {
-    flex-grow: 2;
-    flex-basis: 0;
+ion-title {
+    text-align: center;
 }
 
 ion-card-header {
@@ -22,13 +12,71 @@ ion-card-header {
     color: white;
 }
 
-.middle-buttons {
-    flex-grow: 1;
-    align-self: center;
-    flex-basis: 0;
+@media screen and (orientation:landscape) {
+    .flex-container {
+        margin: 0 auto;
+        display: flex;
+        flex-flow: row nowrap;
+        align-content: center;
+        justify-content: center;
+        width: 90%;
+    }
+
+    ion-card {
+        flex-grow: 2;
+        flex-basis: 0;
+    }
+
+    .middle-buttons {
+        flex-grow: 1;
+        align-self: center;
+        flex-basis: 0;
+    }
+
+    .scoreButton {
+        height: calc((100vh - 125px - 12vw));
+        font-size: calc((100vh - 125px - 25vw) * .68);
+    }
+ }
+
+ @media screen and (orientation:portrait) {
+     .flex-container {
+         margin: 0 auto;
+         display: flex;
+         flex-flow: column nowrap;
+         width: 80%;
+     }
+
+     ion-card {
+        flex-grow: 2;
+    }
+
+    .middle-buttons {
+        width: 60%;
+        align-self: center;
+        flex-basis: 0;
+    }
+
+    .scoreButton {
+        height: calc(100vh - 250px - 90vw);
+        font-size: 5em;
+    }
 }
 
-.scoreButton {
-    height: calc((100vh - 125px - 12vw));
-    font-size: calc((100vh - 125px - 25vw) * .68);
+// @media only screen and (max-device-width: 812px) and (orientation: portrait) {
+//     .scoreButton {
+//         height: calc(100vh - 375px - 72vw);
+//     }
+// }
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+    .scoreButton {
+        height: calc(100vh - 125px - 84vw);
+    }
+}
+
+@media only screen and (min-device-width: 800px) and (max-device-width: 1280px) and (orientation: portrait) {
+    .scoreButton {
+        height: calc(100vh - 125px - 90vw)
+    }
 }
