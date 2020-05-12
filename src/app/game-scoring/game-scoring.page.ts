@@ -193,7 +193,6 @@ export class GameScoringPage implements OnInit {
   currentTourneyId = "";
 
   ngOnInit() {
-	  
 	  this.currentTourneyId = this.activatedRoute.snapshot.paramMap.get("tourneyId");
 	  this.currentTourneyResults = this.klaskSvc.getTournamentGameResults(this.currentTourneyId);
 	  this.setGameNumber();
