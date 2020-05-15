@@ -1,8 +1,8 @@
 <ion-header>
 	<ion-toolbar>
 		<ng-container [ngSwitch] = "true">
-			<ion-title *ngSwitchCase = "!isGameOver" style="text-align: center;">Game {{ gameNumber }}</ion-title>
-			<ion-title *ngSwitchCase = "isGameOver" style="text-align: center;">G A M E  O V E R !</ion-title>
+			<ion-title *ngSwitchCase = "!isGameOver">Game {{ gameNumber }}</ion-title>
+			<ion-title *ngSwitchCase = "isGameOver">G A M E  O V E R !</ion-title>
 		</ng-container>
   	</ion-toolbar>
 </ion-header>
@@ -19,9 +19,7 @@
 							class="ion-no-padding
 								   scoreButton"
 							expand="block" 
-							(click)="presentActionSheet(0)"
-							style="font-size: 5em;"
-						>
+							(click)="presentActionSheet(0)">
 					<div>
 						{{ playerOneScore }}
 						<h3 style="color: lightgray;">
@@ -36,9 +34,8 @@
 				color="warning"
 				expand="block"
 				fill="outline"
-				(click)="doSwitch()"
-			>
-			<ion-icon name="chevron-back-outline"></ion-icon> &nbsp; SWAP SIDES &nbsp; <ion-icon name="chevron-forward-outline"></ion-icon>
+				(click)="doSwitch()">
+				SWAP SIDES&nbsp;<ion-icon name="repeat-outline"></ion-icon>
 			</ion-button>
 			<ion-button 
 				color="danger"
@@ -46,7 +43,7 @@
 				expand="block"
 				fill="outline"
 				(click)="forfeitActionSheet()">
-				FORFEIT<ion-icon name="sad-outline"></ion-icon>
+				FORFEIT&nbsp;<ion-icon name="sad-outline"></ion-icon>
 			</ion-button>
 		</div>
 		<ion-card id="playerTwoSlot">
@@ -60,9 +57,7 @@
 							class="ion-no-padding
 								   scoreButton"
 							expand="block" 
-							(click)="presentActionSheet(1)"
-							style="font-size: 5em;"
-							>
+							(click)="presentActionSheet(1)">
 							<div>
 								{{ playerTwoScore }}
 								<h3 style="color: lightgray;">

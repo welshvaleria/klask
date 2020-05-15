@@ -193,10 +193,9 @@ export class GameScoringPage implements OnInit {
   currentTourneyId = "";
 
   ngOnInit() {
-	
-	this.currentTourneyId = this.activatedRoute.snapshot.paramMap.get("tourneyId");
-	this.currentTourneyResults = this.klaskSvc.getTournamentGameResults(this.currentTourneyId);
-	this.setGameNumber();
+	  this.currentTourneyId = this.activatedRoute.snapshot.paramMap.get("tourneyId");
+	  this.currentTourneyResults = this.klaskSvc.getTournamentGameResults(this.currentTourneyId);
+	  this.setGameNumber();
   }
 
   setGameNumber() {
@@ -209,7 +208,7 @@ export class GameScoringPage implements OnInit {
   }
 
   ionViewWillEnter() {
-	this.scores = [];
+	  this.scores = [];
   }
 
   scores: currentPointData[] = [];
